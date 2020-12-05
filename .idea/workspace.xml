@@ -8,8 +8,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="823622d3-551f-4779-95d7-dbce8536076b" name="Default Changelist" comment="commit project form">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+    <list default="true" id="823622d3-551f-4779-95d7-dbce8536076b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +61,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/DATABASE" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
   </component>
@@ -86,7 +89,7 @@
       <option name="presentableId" value="Default" />
       <updated>1607176904598</updated>
       <workItem from="1607176905692" duration="1321000" />
-      <workItem from="1607178273774" duration="528000" />
+      <workItem from="1607178273774" duration="858000" />
     </task>
     <task id="LOCAL-00001" summary="commit project form">
       <created>1607178633887</created>
@@ -95,7 +98,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607178633887</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="commit project form">
+      <created>1607178831619</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1607178831619</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -156,6 +166,10 @@
       <screen x="47" y="27" width="1319" height="741" />
     </state>
     <state x="307" y="66" width="788" height="661" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/47.27.1319.741@47.27.1319.741" timestamp="1607178398809" />
+    <state x="147" y="125" width="1119" height="543" key="DiffContextDialog" timestamp="1607179002824">
+      <screen x="47" y="27" width="1319" height="741" />
+    </state>
+    <state x="147" y="125" width="1119" height="543" key="DiffContextDialog/47.27.1319.741@47.27.1319.741" timestamp="1607179002824" />
     <state x="189" y="27" width="1024" height="741" key="SettingsEditor" timestamp="1607178362223">
       <screen x="47" y="27" width="1319" height="741" />
     </state>
