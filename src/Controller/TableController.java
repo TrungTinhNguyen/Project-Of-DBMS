@@ -2,9 +2,7 @@ package Controller;
 
 import Databases.ConnectDB;
 import Modules.*;
-import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.ReadOnlyObjectWrapper;
-import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,14 +10,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -113,7 +109,7 @@ public class TableController implements Initializable {
         stage.show();
     }
 
-    public void pay(ActionEvent event) {
+    public void pay() {
         Bill bill = new Bill(Bill.getCount(), tables.get(tableID-1), user, Date.valueOf(LocalDate.now()));
         bill.setListDrinks(drinksOrderedList.get(tableID-1));
 
@@ -126,6 +122,8 @@ public class TableController implements Initializable {
         alert.setContentText(String.valueOf(totalPrices[tableID-1]));
         alert.show();
 
+        tables.get(tableID-1).setStatus(false);
+        statusLbl.setText("Trống");
         drinksOrderedList.get(tableID-1).remove(0, drinksOrderedList.get(tableID-1).size());
         totalPrices[tableID-1] = 0;
         sumLbl.textProperty().bind(new SimpleStringProperty(String.valueOf(totalPrices[tableID-1])));
@@ -164,6 +162,7 @@ public class TableController implements Initializable {
             drinksItems.add(item);
         });
         drinksSplitMenu.getItems().addAll(drinksItems);
+        drinksSplitMenu.setText(drinksItems.get(0).getText());
         countList.forEach(i -> {
             MenuItem item = new MenuItem();
             item.setText(String.valueOf(i));
@@ -171,7 +170,6 @@ public class TableController implements Initializable {
             countItems.add(item);
         });
         countSplitMenu.getItems().addAll(countItems);
-
         columnID.setCellValueFactory(new PropertyValueFactory<>("ID"));
         columnName.setCellValueFactory(col -> new SimpleStringProperty(col.getValue().getDrinks().getName()));
         columnCount.setCellValueFactory(new PropertyValueFactory<>("amountOf"));

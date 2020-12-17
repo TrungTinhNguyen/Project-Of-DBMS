@@ -9,34 +9,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="823622d3-551f-4779-95d7-dbce8536076b" name="Default Changelist" comment="commit project form">
-      <change afterPath="$PROJECT_DIR$/.idea/cssdialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/css/application.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/css/table.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/icons/coffee-table.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/images/background.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/TablePage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Project-Of-DBMS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Project-Of-DBMS.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c74b3edb-3318-4e15-8f20-7c30ccca6058.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c74b3edb-3318-4e15-8f20-7c30ccca6058.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c74b3edb-3318-4e15-8f20-7c30ccca6058/storage_v2/_src_/schema/QuanLyQuanCafe.jKv1rg.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c74b3edb-3318-4e15-8f20-7c30ccca6058/storage_v2/_src_/schema/QuanLyQuanCafe.jKv1rg.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/420cde49-afdc-40d4-bc4a-1297f8006ef5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/420cde49-afdc-40d4-bc4a-1297f8006ef5/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/TableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/TableController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Databases/ConnectDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Databases/ConnectDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Databases/Procedure_chuẩn.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/Databases/Procedure_chuẩn.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modules/Bill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modules/Bill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modules/Drinks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modules/Drinks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modules/DrinksCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modules/DrinksCategory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/HomeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/css/table.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/css/table.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Controller/TableController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/TableController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DATABASE/Project.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DATABASE/Project_chuẩn.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Databases/ConnectDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Databases/ConnectDB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Modules/Bill.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Modules/Bill.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Modules/Drinks.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Modules/Drinks.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Modules/DrinksCategory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Modules/DrinksCategory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/DATABASE/Project.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/DATABASE/Project_chuẩn.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/css/table.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/css/table.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/css/table.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/resources/css/table.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +52,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -118,17 +99,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -147,6 +117,9 @@
       <workItem from="1608174628244" duration="6306000" />
       <workItem from="1608184943692" duration="704000" />
       <workItem from="1608185939959" duration="19252000" />
+      <workItem from="1608209918627" duration="1057000" />
+      <workItem from="1608211850368" duration="168000" />
+      <workItem from="1608212025019" duration="256000" />
     </task>
     <task id="LOCAL-00001" summary="commit project form">
       <created>1607178633887</created>

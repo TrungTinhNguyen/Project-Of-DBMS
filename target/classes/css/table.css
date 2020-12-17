@@ -1,4 +1,6 @@
-
+. {
+    -fx-background-color: #49faf4;
+}
 .button {
     -fx-border-color: #49faf4;
     -fx-focus-traversable: false;

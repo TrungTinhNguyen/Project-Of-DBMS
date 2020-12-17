@@ -1,0 +1,13 @@
+.button {
+    -fx-border-color: #49faf4;
+    -fx-focus-traversable: false;
+}
+.button:hover {
+    -fx-cursor: hand;
+    -fx-border-color: #9a2fde;
+}
+.button:focused {
+    -fx-border-color: #0a4545;
+    -fx-focus-traversable: true;
+}
+
