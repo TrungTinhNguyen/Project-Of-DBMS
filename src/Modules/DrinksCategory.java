@@ -17,11 +17,11 @@ public class DrinksCategory {
         this.ID = ID;
     }
 
-    public String getName() {
+    public String getCategoryName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setCategoryName(String name) {
         this.name = name;
     }
 }

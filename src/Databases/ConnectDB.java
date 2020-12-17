@@ -1,8 +1,9 @@
 package Databases;
 
-import Modules.Account;
-import Modules.Staff;
+import Modules.*;
 import com.mysql.cj.jdbc.CallableStatement;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.sql.*;
 
@@ -31,7 +32,7 @@ public class ConnectDB {
     public Staff getUser (String username) {
         Staff user = null;
         try (Connection connection = conn_db();
-            CallableStatement statement = (CallableStatement) connection.prepareCall("call getUser(?)")) {
+            CallableStatement statement = (CallableStatement) connection.prepareCall("call get_user(?)")) {
             statement.setString(1, username);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
@@ -56,5 +57,71 @@ public class ConnectDB {
             e.printStackTrace();
         }
         return user;
+    }
+
+    public ObservableList <Drinks> getDrinksList () {
+        ObservableList<Drinks> drinksList = FXCollections.observableArrayList();
+        try (Connection connection = conn_db();
+            Statement statement = connection.createStatement()) {
+            ResultSet resultSet = statement.executeQuery("select * from DrinksCategory, Drinks where id = idCategory");
+            while (resultSet.next()) {
+                Drinks drinks = new Drinks(resultSet.getInt(1), resultSet.getString(2), resultSet.getInt(3), resultSet.getString(4), resultSet.getInt("price"));
+                drinksList.add(drinks);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return drinksList;
+    }
+
+    public ObservableList <Table> getTableList () {
+        ObservableList<Table> tables = FXCollections.observableArrayList();
+        try (Connection connection = conn_db();
+             Statement statement = connection.createStatement()) {
+            ResultSet resultSet = statement.executeQuery("select * from TableDrinks");
+            while (resultSet.next()) {
+                Table table = new Table(resultSet.getInt(1), resultSet.getString(2), resultSet.getBoolean(3));
+                tables.add(table);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return tables;
+    }
+
+    public void payment (Bill bill) {
+        try (Connection connection = conn_db();
+             PreparedStatement billStt = connection.prepareStatement("insert into Bill (id_table, idStaff, dateCheckIn, status) values (?,?,?,?)");
+             PreparedStatement billInfoStt = connection.prepareStatement("insert into BillInfo (idBill, idDrinks, amountOf) values (?,?,?)")) {
+            billStt.setInt(1, bill.getTable().getTableID());
+            billStt.setInt(2, bill.getStaff().getStaffID());
+            billStt.setDate(3, bill.getDateCheckin());
+            billStt.setInt(4, 1);
+            billStt.executeUpdate();
+            bill.getListDrinks().forEach(e -> {
+                try {
+                    billInfoStt.setInt(1, bill.getBillID());
+                    billInfoStt.setInt(2, e.getID());
+                    billInfoStt.setInt(3, e.getAmountOf());
+                    billInfoStt.executeUpdate();
+                } catch (SQLException exception) {
+                    exception.printStackTrace();
+                }
+            });
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public int countBill () {
+        int i = 0;
+        try (Connection connection = conn_db();
+        Statement statement = connection.createStatement()) {
+            ResultSet rs = statement.executeQuery("select count(id_bill) from Bill;");
+            while (rs.next())
+                i = rs.getInt(1);
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return i;
     }
 }

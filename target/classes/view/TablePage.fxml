@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Ellipse?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TableController">
+    <Ellipse fill="#9e000000" layoutX="156.0" layoutY="72.0" radiusX="142.0" radiusY="58.0" stroke="#d73da9" strokeType="INSIDE" strokeWidth="2.0" />
+    <Label layoutX="38.0" layoutY="51.0" text="Friends Coffee" textFill="#802170">
+        <font>
+            <Font name="KacstBook" size="33.0" />
+        </font>
+    </Label>
+    <VBox layoutX="565.0" layoutY="20.0" prefHeight="105.0" prefWidth="308.0">
+        <HBox prefHeight="48.0" prefWidth="250.0">
+            <Label prefHeight="48.0" prefWidth="108.0" text="Ngày:" textFill="#366f40">
+                <font>
+                    <Font size="18.0" />
+                </font></Label>
+            <Label fx:id="today" prefHeight="48.0" prefWidth="200.0" text="Label" textAlignment="RIGHT" textFill="#366f40">
+                <font>
+                    <Font size="18.0" />
+                </font></Label>
+        </HBox>
+        <HBox prefHeight="48.0" prefWidth="250.0">
+            <Label prefHeight="48.0" prefWidth="109.0" text="Nhân viên:" textFill="#366f40">
+                <font>
+                    <Font size="18.0" />
+                </font></Label>
+            <Label fx:id="fullName" prefHeight="48.0" prefWidth="199.0" text="Label" textAlignment="RIGHT" textFill="#366f40">
+                <font>
+                    <Font size="18" />
+                </font>
+            </Label>
+        </HBox>
+    </VBox>
+    <HBox layoutX="12.0" layoutY="146.0" prefHeight="401.0" prefWidth="876.0">
+        <VBox prefHeight="335.0" prefWidth="394.0">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="34.0" prefWidth="394.0" text="Bàn" textAlignment="CENTER">
+                <font>
+                    <Font size="22.0" />
+                </font>
+            </Label>
+            <GridPane prefHeight="339.0" prefWidth="378.0">
+                <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="296.0" minWidth="10.0" prefWidth="131.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="296.0" minWidth="10.0" prefWidth="131.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="296.0" minWidth="10.0" prefWidth="131.0" />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                </rowConstraints>
+                <Button alignment="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#tablePressed" prefHeight="114.0" prefWidth="156.0" styleClass="tableBtn" stylesheets="@../resources/css/table.css" text="Bàn 1">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Button>
+                <Button alignment="CENTER" mnemonicParsing="false" onAction="#tablePressed" prefHeight="122.0" prefWidth="135.0" styleClass="tableBtn" stylesheets="@../resources/css/table.css" text="Bàn 2" GridPane.columnIndex="1">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Button>
+                <Button alignment="CENTER" mnemonicParsing="false" onAction="#tablePressed" prefHeight="112.0" prefWidth="148.0" styleClass="tableBtn" stylesheets="@../resources/css/table.css" text="Bàn 3" GridPane.columnIndex="2">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Button>
+                <Button alignment="CENTER" mnemonicParsing="false" onAction="#tablePressed" prefHeight="112.0" prefWidth="148.0" styleClass="tableBtn" stylesheets="@../resources/css/table.css" text="Bàn 4" GridPane.rowIndex="1">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Button>
+                <Button alignment="CENTER" mnemonicParsing="false" onAction="#tablePressed" prefHeight="112.0" prefWidth="148.0" styleClass="tableBtn" stylesheets="@../resources/css/table.css" text="Bàn 5" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Button>
+                <Button alignment="CENTER" mnemonicParsing="false" onAction="#tablePressed" prefHeight="112.0" prefWidth="148.0" styleClass="tableBtn" stylesheets="@../resources/css/table.css" text="Bàn 6" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Button>
+                <Button alignment="CENTER" mnemonicParsing="false" onAction="#tablePressed" prefHeight="112.0" prefWidth="148.0" styleClass="tableBtn" stylesheets="@../resources/css/table.css" text="Bàn 7" GridPane.rowIndex="2">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Button>
+                <Button alignment="CENTER" mnemonicParsing="false" onAction="#tablePressed" prefHeight="112.0" prefWidth="148.0" styleClass="tableBtn" stylesheets="@../resources/css/table.css" text="Bàn 8" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Button>
+                <Button alignment="CENTER" mnemonicParsing="false" onAction="#tablePressed" prefHeight="112.0" prefWidth="148.0" styleClass="tableBtn" stylesheets="@../resources/css/table.css" text="Bàn 9" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Button>
+            </GridPane>
+        </VBox>
+        <VBox fx:id="infoPane" prefHeight="401.0" prefWidth="480.0">
+            <Label fx:id="tableName" alignment="CENTER" prefHeight="34.0" prefWidth="480.0" text="Table name">
+                <font>
+                    <Font size="22.0" />
+                </font>
+            </Label>
+            <HBox prefHeight="26.0" prefWidth="407.0">
+                <SplitMenuButton fx:id="drinksSplitMenu" alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="254.0" styleClass="hbox-add-food" text="Drinks">
+                    <HBox.margin>
+                        <Insets right="5.0" />
+                    </HBox.margin>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </SplitMenuButton>
+                <SplitMenuButton fx:id="countSplitMenu" mnemonicParsing="false" prefHeight="26.0" prefWidth="103.0" styleClass="hbox-add-food" text="Số lượng">
+                    <HBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                    </HBox.margin>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </SplitMenuButton>
+                <Button mnemonicParsing="false" onAction="#addFood" prefHeight="26.0" prefWidth="104.0" styleClass="hbox-add-food" text="Thêm">
+                    <HBox.margin>
+                        <Insets left="5.0" />
+                    </HBox.margin></Button>
+                <VBox.margin>
+                    <Insets />
+                </VBox.margin>
+            </HBox>
+            <Pane prefHeight="63.0" prefWidth="483.0">
+                <Label alignment="CENTER" layoutX="85.0" layoutY="19.0" prefHeight="26.0" prefWidth="131.0" text="Trạng Thái:" />
+                <Label fx:id="statusLbl" alignment="CENTER" layoutX="228.0" layoutY="19.0" prefHeight="26.0" prefWidth="131.0" text="status" />
+            </Pane>
+            <TableView fx:id="drinksOrderedTable" prefHeight="200.0" prefWidth="448.0">
+                <columns>
+                    <TableColumn fx:id="columnID" maxWidth="100.0" minWidth="40.0" prefWidth="40.0" text="STT" />
+                    <TableColumn fx:id="columnName" maxWidth="400.0" minWidth="240.0" prefWidth="240.0" text="Tên" />
+                    <TableColumn fx:id="columnCount" maxWidth="120.0" minWidth="74.0" prefWidth="81.0" text="Số Lượng" />
+                    <TableColumn fx:id="columnPrice" maxWidth="200.0" minWidth="120.0" prefWidth="120.0" text="Giá" />
+                </columns>
+            </TableView>
+            <Pane prefHeight="77.0" prefWidth="483.0">
+                <Label layoutX="293.0" layoutY="14.0" text="Tổng:" />
+                <Label fx:id="sumLbl" alignment="CENTER_RIGHT" layoutX="361.0" layoutY="14.0" prefHeight="16.0" prefWidth="118.0" text="Tổng" />
+                <Button layoutX="65.0" layoutY="50.0" mnemonicParsing="false" text="Chuyển bàn" />
+                <Button layoutX="195.0" layoutY="50.0" mnemonicParsing="false" onAction="#deleteTable" text="Xóa bàn" />
+                <Button layoutX="300.0" layoutY="50.0" mnemonicParsing="false" onAction="#pay" text="Thanh Toán" />
+            </Pane>
+        </VBox>
+    </HBox>
+    <Button layoutX="778.0" layoutY="560.0" mnemonicParsing="false" onAction="#backToHome" prefHeight="26.0" prefWidth="95.0" text="Về" />
+
+</AnchorPane>

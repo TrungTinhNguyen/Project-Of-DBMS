@@ -1,5 +1,8 @@
 package Modules;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.sql.Date;
 import java.util.ArrayList;
 
@@ -7,17 +10,30 @@ public class Bill {
     private int billID;
     private Table table;
     private Staff staff;
-    private ArrayList <BillInfo> listDrinks;
+    private ObservableList<BillInfo> listDrinks;
     private Date dateCheckin;
     private boolean status;
 
-    public Bill(int billID, Table table, Staff staff, ArrayList<BillInfo> listDrinks, Date dateCheckin, boolean status) {
+    private static int count = 1;
+
+    public Bill(int billID, Table table, Staff staff, ObservableList<BillInfo> listDrinks, Date dateCheckin, boolean status) {
         this.billID = billID;
         this.table = table;
         this.staff = staff;
         listDrinks.forEach(drinks -> this.listDrinks.add(drinks));
-        this.dateCheckin = dateCheckin;
+        this.dateCheckin = Date.valueOf(dateCheckin.toLocalDate());
         this.status = status;
+        count ++;
+    }
+
+    public Bill(int billID, Table table, Staff staff, Date dateCheckin) {
+        this.billID = billID;
+        this.table = table;
+        this.staff = staff;
+        this.dateCheckin = Date.valueOf(dateCheckin.toLocalDate());
+        this.status = false;
+        listDrinks = FXCollections.observableArrayList();
+        count++;
     }
 
     public int getBillID() {
@@ -44,11 +60,11 @@ public class Bill {
         this.staff = staff;
     }
 
-    public ArrayList<BillInfo> getListDrinks() {
+    public ObservableList<BillInfo> getListDrinks() {
         return listDrinks;
     }
 
-    public void setListDrinks(ArrayList<BillInfo> listDrinks) {
+    public void setListDrinks(ObservableList<BillInfo> listDrinks) {
         listDrinks.forEach(drinks -> this.listDrinks.add(drinks));
     }
 
@@ -66,5 +82,13 @@ public class Bill {
 
     public void setStatus(boolean status) {
         this.status = status;
+    }
+
+    public static int getCount() {
+        return count;
+    }
+
+    public static void setCount(int count) {
+        Bill.count = count;
     }
 }

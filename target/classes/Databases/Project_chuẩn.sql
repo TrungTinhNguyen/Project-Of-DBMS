@@ -73,38 +73,37 @@ CREATE TABLE BillInfo (
         REFERENCES Drinks (id_Drinks)
 );
 	-- insert values to staff
-insert into Staff (fullname, possition, birthday, phone_number, address, date_start)
+insert into staff (fullname, possition, birthday, phone_number, address, date_start)
  value (N'Nguyễn Thị Linh', N'Quản lí', '1995-01-02', 0336666999, 'Quận Ninh Kiều-Cần Thơ', '2019-01-01');
-insert into Staff (fullname, possition, birthday, phone_number, address, date_start)
+insert into staff (fullname, possition, birthday, phone_number, address, date_start)
  value (N'Trần Hùng', N'Bảo vệ', '1999-02-04', 0339999111, 'Phong Điền-Cần Thơ', '2020-03-01');
- insert into Staff (fullname, possition, birthday, phone_number, address, date_start)
+ insert into staff (fullname, possition, birthday, phone_number, address, date_start)
  value (N'Phan Hữu Nhân', N'Phục vụ', '2000-02-05', 0339999222, 'Giồng Riềng-Kiên Giang', '2020-05-05');
- insert into Staff (fullname, possition, birthday, phone_number, address, date_start)
+ insert into staff (fullname, possition, birthday, phone_number, address, date_start)
  value (N'Huỳnh Kim Vy', N'Phục vụ', '2000-02-02', 0339999444, 'Giồng Riềng-Kiên Giang', '2020-04-01');
- insert into Staff (fullname, possition, birthday, phone_number, address, date_start)
+ insert into staff (fullname, possition, birthday, phone_number, address, date_start)
  value (N'Vương Như Hảo', N'Thu Ngân', '2000-06-04', 0339999555, 'Phong Điền-Cần Thơ', '2020-03-05');
- insert into Staff (fullname, possition, birthday, phone_number, address, date_start)
+ insert into staff (fullname, possition, birthday, phone_number, address, date_start)
  value (N'Nguyễn Thị Pha Chế', N'Pha chế', '1999-02-04', 0339999999, 'Cái Răng-Cần Thơ', '2019-07-07');
 	-- insert values to account
-insert into Account (username, idStaff, password, level)
+insert into account (username, idStaff, password, level)
 value (n'QLlinh', 01, 123456, 0);
-insert into Account (username, idStaff, password, level)
+insert into account (username, idStaff, password, level)
 value (n'BVhung', 02, 123456, 1);
-insert into Account (username, idStaff, password, level)
+insert into account (username, idStaff, password, level)
 value (n'PVnhan', 03, 123456, 1);
-insert into Account (username, idStaff, password, level)
+insert into account (username, idStaff, password, level)
 value (n'PVvy', 04, 123456, 1);
-insert into Account (username, idStaff, password, level)
+insert into account (username, idStaff, password, level)
 value (n'TNhao', 05, 123456, 1);
-insert into Account (username, idStaff, password, level)
+insert into account (username, idStaff, password, level)
 value (n'PCche', 06, 123456, 1);
-select * from Drinks;
 	-- insert values to Salary
-insert into Salary (idStaff, salary, bonus) value (2, 2500000, 0);
-insert into Salary (idStaff, salary, bonus) value (3, 2500000, 0);
-insert into Salary (idStaff, salary, bonus) value (4, 2500000, 0);
-insert into Salary (idStaff, salary, bonus) value (5, 3000000, 0);
-insert into Salary (idStaff, salary, bonus) value (6, 4000000, 0);
+insert into salary (idStaff, salary, bonus) value (2, 2500000, 0);
+insert into salary (idStaff, salary, bonus) value (3, 2500000, 0);
+insert into salary (idStaff, salary, bonus) value (4, 2500000, 0);
+insert into salary (idStaff, salary, bonus) value (5, 3000000, 0);
+insert into salary (idStaff, salary, bonus) value (6, 4000000, 0);
 	-- insert values to tabledrinks
 insert into TableDrinks (name) values (n'Bàn 1');
 insert into TableDrinks (name) values (n'Bàn 2');
@@ -135,3 +134,17 @@ insert into Drinks (name, idCategory, price) values (n'Trà Sữa Việt Quất'
 insert into Drinks (name, idCategory, price) values (n'Trà Sữa Trân Châu Đường Đen',3 ,35000);
 insert into Drinks (name, idCategory, price) values (n'Trà Sữa Trân Châu Đường Nâu',3 ,35000);
 insert into Drinks (name, idCategory, price) values (n'Cacao Sữa Nóng',3 ,30000);
+	-- insert values to Bill
+insert into Bill (id_table, idStaff, dateCheckIn,  status) value (1, 05, '2020-12-17', 1);
+insert into Bill (id_table, idStaff, dateCheckIn,  status) value (2, 05, '2020-12-17', 0);
+insert into Bill (id_table, idStaff, dateCheckIn,  status) value (5, 05, '2020-06-20', 1);
+insert into Bill (id_table, idStaff, dateCheckIn,  status) value (9, 05, '2020-11-15', 0);
+	-- insert values to Billinfo
+insert into BillInfo (idBill, idDrinks, amountOf) value (1, 12, 1);
+insert into BillInfo (idBill, idDrinks, amountOf) value (1, 15, 1);
+insert into BillInfo (idBill, idDrinks, amountOf) value (2, 8, 2);
+insert into BillInfo (idBill, idDrinks, amountOf) value (2, 4, 2);
+insert into BillInfo (idBill, idDrinks, amountOf) value (3, 1, 2);
+insert into BillInfo (idBill, idDrinks, amountOf) value (3, 14, 1);
+insert into BillInfo (idBill, idDrinks, amountOf) value (3, 10, 1);
+insert into BillInfo (idBill, idDrinks, amountOf) value (4, 3, 3);
