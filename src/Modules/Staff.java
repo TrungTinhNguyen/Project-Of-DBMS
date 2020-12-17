@@ -7,19 +7,18 @@ public class Staff {
     private String full_name;
     private String position;
     private String address;
+    private String tell;
     private Date birthday;
     private Date begin_date;
 
-    private static int count = 0;
-
-    public Staff(int staffID, String full_name, String position, String address, Date birthday, Date begin_date) {
+    public Staff(int staffID, String full_name, String position, String address, String tell, Date birthday, Date begin_date) {
         this.staffID = staffID;
         this.full_name = full_name;
         this.position = position;
         this.address = address;
+        this.tell = tell;
         this.birthday = Date.valueOf(birthday.toLocalDate());
         this.begin_date = Date.valueOf(begin_date.toLocalDate());
-        count ++;
     }
 
     public int getStaffID() {
@@ -54,6 +53,14 @@ public class Staff {
         this.address = address;
     }
 
+    public String getTell() {
+        return tell;
+    }
+
+    public void setTell(String tell) {
+        this.tell = tell;
+    }
+
     public Date getBirthday() {
         return birthday;
     }
@@ -70,11 +77,4 @@ public class Staff {
         this.begin_date = Date.valueOf(begin_date.toLocalDate());
     }
 
-    public static int getCount() {
-        return count;
-    }
-
-    public static void setCount(int count) {
-        Staff.count = count;
-    }
 }

@@ -7,8 +7,8 @@ public class Account extends Staff{
     private String password;
     private int account_type;
 
-    public Account(int staffID, String full_name, String position, String address, Date birthday, Date begin_date, String username, String password, int account_type) {
-        super(staffID, full_name, position, address, birthday, begin_date);
+    public Account(int staffID, String full_name, String position, String address, String tell, Date birthday, Date begin_date, String username, String password, int account_type) {
+        super(staffID, full_name, position, address, tell, birthday, begin_date);
         this.username = username;
         this.password = password;
         this.account_type = account_type;

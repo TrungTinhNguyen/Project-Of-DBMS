@@ -73,38 +73,38 @@ CREATE TABLE BillInfo (
         REFERENCES Drinks (id_Drinks)
 );
 	-- insert values to staff
-insert into staff (fullname, possition, birthday, phone_number, address, date_start)
+insert into Staff (fullname, possition, birthday, phone_number, address, date_start)
  value (N'Nguyễn Thị Linh', N'Quản lí', '1995-01-02', 0336666999, 'Quận Ninh Kiều-Cần Thơ', '2019-01-01');
-insert into staff (fullname, possition, birthday, phone_number, address, date_start)
+insert into Staff (fullname, possition, birthday, phone_number, address, date_start)
  value (N'Trần Hùng', N'Bảo vệ', '1999-02-04', 0339999111, 'Phong Điền-Cần Thơ', '2020-03-01');
- insert into staff (fullname, possition, birthday, phone_number, address, date_start)
+ insert into Staff (fullname, possition, birthday, phone_number, address, date_start)
  value (N'Phan Hữu Nhân', N'Phục vụ', '2000-02-05', 0339999222, 'Giồng Riềng-Kiên Giang', '2020-05-05');
- insert into staff (fullname, possition, birthday, phone_number, address, date_start)
+ insert into Staff (fullname, possition, birthday, phone_number, address, date_start)
  value (N'Huỳnh Kim Vy', N'Phục vụ', '2000-02-02', 0339999444, 'Giồng Riềng-Kiên Giang', '2020-04-01');
- insert into staff (fullname, possition, birthday, phone_number, address, date_start)
+ insert into Staff (fullname, possition, birthday, phone_number, address, date_start)
  value (N'Vương Như Hảo', N'Thu Ngân', '2000-06-04', 0339999555, 'Phong Điền-Cần Thơ', '2020-03-05');
- insert into staff (fullname, possition, birthday, phone_number, address, date_start)
+ insert into Staff (fullname, possition, birthday, phone_number, address, date_start)
  value (N'Nguyễn Thị Pha Chế', N'Pha chế', '1999-02-04', 0339999999, 'Cái Răng-Cần Thơ', '2019-07-07');
 	-- insert values to account
-insert into account (username, idStaff, password, level)
+insert into Account (username, idStaff, password, level)
 value (n'QLlinh', 01, 123456, 0);
-insert into account (username, idStaff, password, level)
+insert into Account (username, idStaff, password, level)
 value (n'BVhung', 02, 123456, 1);
-insert into account (username, idStaff, password, level)
+insert into Account (username, idStaff, password, level)
 value (n'PVnhan', 03, 123456, 1);
-insert into account (username, idStaff, password, level)
+insert into Account (username, idStaff, password, level)
 value (n'PVvy', 04, 123456, 1);
-insert into account (username, idStaff, password, level)
+insert into Account (username, idStaff, password, level)
 value (n'TNhao', 05, 123456, 1);
-insert into account (username, idStaff, password, level)
+insert into Account (username, idStaff, password, level)
 value (n'PCche', 06, 123456, 1);
-select * from drinks;
+select * from Drinks;
 	-- insert values to Salary
-insert into salary (idStaff, salary, bonus) value (2, 2500000, 0);
-insert into salary (idStaff, salary, bonus) value (3, 2500000, 0);
-insert into salary (idStaff, salary, bonus) value (4, 2500000, 0);
-insert into salary (idStaff, salary, bonus) value (5, 3000000, 0);
-insert into salary (idStaff, salary, bonus) value (6, 4000000, 0);
+insert into Salary (idStaff, salary, bonus) value (2, 2500000, 0);
+insert into Salary (idStaff, salary, bonus) value (3, 2500000, 0);
+insert into Salary (idStaff, salary, bonus) value (4, 2500000, 0);
+insert into Salary (idStaff, salary, bonus) value (5, 3000000, 0);
+insert into Salary (idStaff, salary, bonus) value (6, 4000000, 0);
 	-- insert values to tabledrinks
 insert into TableDrinks (name) values (n'Bàn 1');
 insert into TableDrinks (name) values (n'Bàn 2');

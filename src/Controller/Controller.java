@@ -1,6 +1,7 @@
 package Controller;
 
 import Databases.ConnectDB;
+import Modules.Staff;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.event.ActionEvent;
@@ -25,17 +26,21 @@ public class Controller {
     @FXML private TextField txtFUsername;
     @FXML private PasswordField txtFPassword;
 
+    private static  Staff user;
+
     public void login (ActionEvent event) {
         String username = txtFUsername.getText();
         String password = txtFPassword.getText();
         int checked = -1;
+        ConnectDB connectDB = null;
         try{
-            ConnectDB connectDB = new ConnectDB();
+            connectDB = new ConnectDB();
             checked = connectDB.validate(username, password);
         } catch (SQLException e) {
             e.printStackTrace();
         }
         if (checked > -1) {
+            user = connectDB.getUser(username);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             try{
                 Parent root = FXMLLoader.load(new File("src/view/homePage.fxml").toURI().toURL());
@@ -59,5 +64,8 @@ public class Controller {
             alert.setContentText("Tên đăng nhập hoặc mật khẩu không chính xác\nvui long kiểm tra lại");
             alert.show();
         }
+    }
+    public static Staff getUser() {
+        return user;
     }
 }
