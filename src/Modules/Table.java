@@ -27,7 +27,7 @@ public class Table {
         this.name = name;
     }
 
-    public boolean isStatus() {
+    public boolean getStatus() {
         return status;
     }
 

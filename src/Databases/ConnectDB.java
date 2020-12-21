@@ -1,7 +1,6 @@
 package Databases;
 
 import Modules.*;
-import com.mysql.cj.jdbc.CallableStatement;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -29,8 +28,8 @@ public class ConnectDB {
         return checked;
     }
 
-    public Staff getUser (String username) {
-        Staff user = null;
+    public Account getUser (String username) {
+        Account user = null;
         try (Connection connection = conn_db();
             CallableStatement statement = (CallableStatement) connection.prepareCall("call get_user(?)")) {
             statement.setString(1, username);
@@ -43,13 +42,14 @@ public class ConnectDB {
                 String address = resultSet.getString("address");
                 Date birthday = Date.valueOf(resultSet.getDate("birthday").toLocalDate());
                 Date beginDate = Date.valueOf(resultSet.getDate("date_start").toLocalDate());
+                float salary = resultSet.getFloat(9);
 
                 if (!resultSet.getString("username").isEmpty()) {
                     String password = resultSet.getString("password");
                     int level = resultSet.getInt("level");
-                    user = new Account(id, fullName, position, address, tell, birthday, beginDate, username, password, level);
+                    user = new Account(id, fullName, position, address, tell, birthday, beginDate,salary, username, password, level);
                 } else
-                    user = new Staff(id, fullName, position, address, tell, birthday, beginDate);
+                    user = new Account(id, fullName, position, address, tell, birthday, beginDate, salary);
 
 
             }
@@ -91,8 +91,8 @@ public class ConnectDB {
 
     public void payment (Bill bill) {
         try (Connection connection = conn_db();
-             PreparedStatement billStt = connection.prepareStatement("insert into Bill (id_table, idStaff, dateCheckIn, status) values (?,?,?,?)");
-             PreparedStatement billInfoStt = connection.prepareStatement("insert into BillInfo (idBill, idDrinks, amountOf) values (?,?,?)")) {
+             PreparedStatement billStt = connection.prepareStatement("insert into Bill (id_table, idStaff, dateCheckIn, status) values (?,?,?,?);");
+             PreparedStatement billInfoStt = connection.prepareStatement("insert into BillInfo (idBill, idDrinks, amountOf) values (?,?,?);")) {
             billStt.setInt(1, bill.getTable().getTableID());
             billStt.setInt(2, bill.getStaff().getStaffID());
             billStt.setDate(3, bill.getDateCheckin());
@@ -123,5 +123,70 @@ public class ConnectDB {
             e.printStackTrace();
         }
         return i;
+    }
+
+    public ObservableList <Staff> getStaffList () {
+        ObservableList <Staff> staffObservableList = FXCollections.observableArrayList();
+        try (Connection connection = conn_db();
+        CallableStatement callableStatement =  connection.prepareCall("call getStaffList();")) {
+            ResultSet rs = callableStatement.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt(1);
+                String name = rs.getString(2);
+                String position = rs.getString(3);
+                String address = rs.getString(4);
+                String tell = rs.getString(5);
+                Date birthday = rs.getDate(6);
+                Date beginDay = rs.getDate(7);
+                float salary = rs.getFloat(8);
+
+                Staff staff = new Staff(id, name, position, address, tell, birthday, beginDay, salary);
+                staffObservableList.add(staff);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return staffObservableList;
+    }
+
+    public void addStaff (Staff staff) throws SQLException {
+        try (Connection connection = conn_db();
+             CallableStatement callableStatement =  connection.prepareCall("call addStaff(?,?,?,?,?,?,?,?);")) {
+            callableStatement.setInt(1, staff.getStaffID());
+            callableStatement.setString(2, staff.getFull_name());
+            callableStatement.setString(3, staff.getPosition());
+            callableStatement.setString(4, staff.getAddress());
+            callableStatement.setInt(5, Integer.parseInt(staff.getTell()));
+            callableStatement.setDate(6, staff.getBirthday());
+            callableStatement.setDate(7, staff.getBegin_date());
+            callableStatement.setFloat(8, staff.getSalary());
+            callableStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public boolean checkAccount (int staffID) {
+        boolean checked = false;
+        try (Connection connection = conn_db();
+             PreparedStatement statement = connection.prepareStatement("select hasAccount(?);")) {
+            statement.setInt(1, staffID);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()){
+                checked = rs.getInt(1) == 1 ? true:false;
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return checked;
+    }
+
+    public void deleteStaff (int staffID) {
+        try (Connection connection = conn_db();
+        CallableStatement statement = connection.prepareCall("call deleteStaff (?)")) {
+            statement.setInt(1, staffID);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

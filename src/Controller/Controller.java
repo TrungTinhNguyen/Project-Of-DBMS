@@ -1,7 +1,7 @@
 package Controller;
 
 import Databases.ConnectDB;
-import Modules.Staff;
+import Modules.Account;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.event.ActionEvent;
@@ -26,7 +26,7 @@ public class Controller {
     @FXML private TextField txtFUsername;
     @FXML private PasswordField txtFPassword;
 
-    private static  Staff user;
+    private static Account user;
 
     public void login (ActionEvent event) {
         String username = txtFUsername.getText();
@@ -65,7 +65,7 @@ public class Controller {
             alert.show();
         }
     }
-    public static Staff getUser() {
+    public static Account getUser() {
         return user;
     }
 }

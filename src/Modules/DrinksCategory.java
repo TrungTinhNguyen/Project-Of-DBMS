@@ -9,11 +9,11 @@ public class DrinksCategory {
         this.name = name;
     }
 
-    public int getID() {
+    public int getCategoryID() {
         return ID;
     }
 
-    public void setID(int ID) {
+    public void setCategoryID(int ID) {
         this.ID = ID;
     }
 

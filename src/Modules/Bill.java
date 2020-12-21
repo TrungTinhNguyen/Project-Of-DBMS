@@ -4,7 +4,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.Date;
-import java.util.ArrayList;
 
 public class Bill {
     private int billID;
@@ -20,7 +19,7 @@ public class Bill {
         this.billID = billID;
         this.table = table;
         this.staff = staff;
-        listDrinks.forEach(drinks -> this.listDrinks.add(drinks));
+        this.listDrinks.addAll(listDrinks);
         this.dateCheckin = Date.valueOf(dateCheckin.toLocalDate());
         this.status = status;
         count ++;

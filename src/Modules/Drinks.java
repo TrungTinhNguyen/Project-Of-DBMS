@@ -12,6 +12,13 @@ public class Drinks extends DrinksCategory{
         this.price = price;
     }
 
+    public Drinks(Drinks drinks) {
+        super(drinks.getCategoryID(), drinks.getCategoryName());
+        this.drinksID = drinks.getDrinksID();
+        this.name = drinks.getName();
+        this.price = drinks.getPrice();
+    }
+
     public int getDrinksID() {
         return drinksID;
     }

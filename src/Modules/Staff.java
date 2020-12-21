@@ -10,8 +10,9 @@ public class Staff {
     private String tell;
     private Date birthday;
     private Date begin_date;
+    private float salary;
 
-    public Staff(int staffID, String full_name, String position, String address, String tell, Date birthday, Date begin_date) {
+    public Staff(int staffID, String full_name, String position, String address, String tell, Date birthday, Date begin_date, float salary) {
         this.staffID = staffID;
         this.full_name = full_name;
         this.position = position;
@@ -19,6 +20,18 @@ public class Staff {
         this.tell = tell;
         this.birthday = Date.valueOf(birthday.toLocalDate());
         this.begin_date = Date.valueOf(begin_date.toLocalDate());
+        this.salary = salary;
+    }
+
+    public Staff (Staff staff) {
+        this.staffID = staff.getStaffID();
+        this.full_name = staff.getFull_name();
+        this.position = staff.getPosition();
+        this.address = staff.getAddress();
+        this.tell = staff.getTell();
+        this.birthday = staff.getBirthday();
+        this.begin_date = staff.getBegin_date();
+        this.salary = staff.getSalary();
     }
 
     public int getStaffID() {
@@ -77,4 +90,11 @@ public class Staff {
         this.begin_date = Date.valueOf(begin_date.toLocalDate());
     }
 
+    public float getSalary() {
+        return salary;
+    }
+
+    public void setSalary(float salary) {
+        this.salary = salary;
+    }
 }

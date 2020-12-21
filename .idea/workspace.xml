@@ -9,19 +9,109 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="823622d3-551f-4779-95d7-dbce8536076b" name="Default Changelist" comment="commit project form">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/420cde49-afdc-40d4-bc4a-1297f8006ef5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/420cde49-afdc-40d4-bc4a-1297f8006ef5/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/StaffController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/addStaff.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/staffListPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Project-Of-DBMS.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/cssdialects.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c74b3edb-3318-4e15-8f20-7c30ccca6058.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c74b3edb-3318-4e15-8f20-7c30ccca6058/storage_v2/_src_/schema/QuanLyQuanCafe.jKv1rg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c74b3edb-3318-4e15-8f20-7c30ccca6058/storage_v2/_src_/schema/QuanLyQuanCafe.jKv1rg.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c74b3edb-3318-4e15-8f20-7c30ccca6058/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_protobuf_protobuf_java_3_11_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_thoughtworks_qdox_qdox_2_0_M8.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_22.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_aether_provider_3_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_artifact_3_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_core_3_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_model_3_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_model_builder_3_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_plugin_api_3_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_repository_metadata_3_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_settings_3_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_settings_builder_3_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_plugins_maven_compiler_plugin_3_8_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_shared_maven_shared_incremental_1_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_shared_maven_shared_utils_3_2_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_plexus_plexus_classworlds_2_2_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_plexus_plexus_compiler_api_2_8_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_plexus_plexus_compiler_javac_2_8_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_plexus_plexus_compiler_manager_2_8_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_plexus_plexus_component_annotations_1_5_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_plexus_plexus_interpolation_1_14.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_plexus_plexus_java_0_9_10.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_plexus_plexus_utils_2_0_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_linux_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_linux_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_linux_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_linux_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_6_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_sonatype_aether_aether_api_1_7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_sonatype_aether_aether_impl_1_7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_sonatype_aether_aether_spi_1_7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_sonatype_aether_aether_util_1_7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_sonatype_plexus_plexus_cipher_1_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_sonatype_plexus_plexus_sec_dispatcher_1_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_sonatype_sisu_sisu_guice_noaop_2_1_7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_sonatype_sisu_sisu_inject_bean_1_4_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_sonatype_sisu_sisu_inject_plexus_1_4_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Default_Changelist.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Default_Changelist/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/TableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/TableController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/css/table.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/css/table.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/TableController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/TableController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/css/table.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/css/table.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/resources/css/table.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/resources/css/table.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Databases/ConnectDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Databases/ConnectDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Databases/Procedure_chuẩn.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/Databases/Procedure_chuẩn.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modules/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modules/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modules/Bill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modules/Bill.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modules/BillInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modules/BillInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modules/Drinks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modules/Drinks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modules/DrinksCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modules/DrinksCategory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modules/Salary.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modules/Staff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modules/Staff.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modules/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modules/Table.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/homePage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/homePage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Project-Of-DBMS-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/HomeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Databases/ConnectDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Databases/ConnectDB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Databases/Procedure_chuẩn.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Databases/Procedure_chuẩn.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Modules/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Modules/Account.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Modules/Salary.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Modules/Staff.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Modules/Staff.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/css/application.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/css/table.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/icons/coffee-table.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/images/background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/homePage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/homePage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -53,16 +143,16 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/resources/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.37126437" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -120,6 +210,13 @@
       <workItem from="1608209918627" duration="1057000" />
       <workItem from="1608211850368" duration="168000" />
       <workItem from="1608212025019" duration="256000" />
+      <workItem from="1608384651237" duration="1198000" />
+      <workItem from="1608386477145" duration="10707000" />
+      <workItem from="1608453434045" duration="600000" />
+      <workItem from="1608455024441" duration="13821000" />
+      <workItem from="1608535368746" duration="2556000" />
+      <workItem from="1608538013860" duration="103000" />
+      <workItem from="1608538155183" duration="1311000" />
     </task>
     <task id="LOCAL-00001" summary="commit project form">
       <created>1607178633887</created>
@@ -200,5 +297,15 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit project form" />
     <option name="LAST_COMMIT_MESSAGE" value="commit project form" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalArgumentException" package="java.lang" />
+          <option name="timeStamp" value="3" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

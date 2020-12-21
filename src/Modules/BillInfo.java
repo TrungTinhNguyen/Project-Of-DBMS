@@ -24,7 +24,7 @@ public class BillInfo {
     }
 
     public void setDrinks(Drinks drinks) {
-        this.drinks = drinks;
+        this.drinks = new Drinks(drinks);
     }
 
     public int getAmountOf() {

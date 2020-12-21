@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Ellipse?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.HomeController">
+<AnchorPane minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.HomeController">
     <Ellipse fill="#9e000000" layoutX="156.0" layoutY="72.0" radiusX="142.0" radiusY="58.0" stroke="#d73da9" strokeType="INSIDE" strokeWidth="2.0" />
     <Label layoutX="38.0" layoutY="51.0" text="Friends Coffee" textFill="#802170">
         <font>
@@ -61,7 +61,7 @@
                     <Font size="20.0" />
                 </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="77.0" prefWidth="393.0" text="Nhân Viên" GridPane.columnIndex="1">
+            <Button onAction="#toStaffList" mnemonicParsing="false" prefHeight="77.0" prefWidth="393.0" text="Nhân Viên" GridPane.columnIndex="1">
                 <GridPane.margin>
                     <Insets bottom="15.0" left="30.0" right="40.0" top="15.0" />
                 </GridPane.margin>

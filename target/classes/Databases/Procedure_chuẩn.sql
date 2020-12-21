@@ -16,8 +16,8 @@ delimiter //
 drop procedure if exists get_user;
 create procedure get_user (in user_name nvarchar(50))
 begin
-    select id_staff, fullname, possition, birthday, phone_number, address, date_start, username, password, level  from Staff, Account
-    where id_staff = idStaff and username = user_name;
+    select id_staff, fullname, possition, birthday, phone_number, address, date_start, username, password, level  from Staff, Account, Salary
+    where id_staff = Account.idStaff and id_Staff=Salary.idStaff and username = user_name;
 end //
 delimiter ;
 call get_user ('PVnhan');

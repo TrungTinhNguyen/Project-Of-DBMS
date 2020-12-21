@@ -78,14 +78,14 @@ public class TableController implements Initializable {
         Button button = (Button) event.getSource();
         tableID = Integer.parseInt(String.valueOf(button.getText().charAt(4)));
         tableName.setText(button.getText());
-        statusLbl.setText((tables.get(tableID-1).isStatus()) ? "Có Người" : "Trống");
+        statusLbl.setText( tables.get(tableID-1).getStatus() ? "Có Người" : "Trống");
         infoPane.setDisable(false);
         drinksOrderedTable.setItems(drinksOrderedList.get(tableID-1));
         sumLbl.textProperty().bind(new SimpleStringProperty(String.valueOf(totalPrices[tableID-1])));
     }
 
     public void addFood() {
-        if (!tables.get(tableID-1).isStatus()) {
+        if (!tables.get(tableID-1).getStatus()) {
             tables.get(tableID-1).setStatus(true);
             statusLbl.setText("Có Người");
         }
