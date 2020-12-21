@@ -130,6 +130,58 @@ public class StaffController implements Initializable {
             staffSalary.setText(String.valueOf(selected.getSalary()));
         }
     }
+    public void updateStaffInfo () {
+        Staff selected = staffTableView.getSelectionModel().getSelectedItem();
+        int staffId = selected.getStaffID();
+        boolean flag = false;
+        String name = "";
+        String pos = "";
+        String adr = "";
+        String birD = "";
+        String tell = "";
+        float salary = 0;
+        if (selected != null){
+            if (!staffName.getText().equals(selected.getFull_name())) {
+                name = staffName.getText();
+                flag = true;
+            }
+            if (!staffPosition.getText().equals(selected.getPosition())) {
+                pos = staffPosition.getText();
+                flag = true;
+            }
+            if (!staffAddress.getText().equals(selected.getAddress())) {
+                adr = staffAddress.getText();
+                flag = true;
+            }
+            if (!String.valueOf(selected.getBirthday()).equals(staffBirthday.getText())) {
+                birD = staffBirthday.getText();
+                flag = true;
+            }
+            if (!staffTell.getText().equals(selected.getTell())) {
+                tell = staffTell.getText();
+                flag = true;
+            }
+            if (Float.parseFloat(staffSalary.getText()) != selected.getSalary()) {
+                salary = Integer.parseInt(staffSalary.getText());
+                flag = true;
+            }
+            if (flag) {
+                if (name.isEmpty()) name = selected.getFull_name();
+                if (pos.isEmpty()) pos = selected.getPosition();
+                if (adr.isEmpty()) adr = selected.getAddress();
+                if (tell.isEmpty()) tell = selected.getTell();
+                if (birD.isEmpty()) birD = String.valueOf(selected.getBirthday());
+                if (salary == 0) salary = selected.getSalary();
+
+                Staff staff = new Staff(staffId, name, pos, adr, tell, Date.valueOf(birD), selected.getBegin_date(), salary);
+
+                staffObservableList.add(staffObservableList.indexOf(selected), staff);
+                staffObservableList.remove(selected);
+                new ConnectDB().updateStaffInfo(staff);
+            }
+        }
+
+    }
     public void backToHome (ActionEvent event) throws IOException {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Parent root = FXMLLoader.load(new File("src/view/homePage.fxml").toURI().toURL());

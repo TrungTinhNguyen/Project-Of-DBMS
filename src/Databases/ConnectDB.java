@@ -16,7 +16,7 @@ public class ConnectDB {
         int checked = -1;
         try (
                 Connection connection = conn_db();
-                CallableStatement callableStatement = (CallableStatement) connection.prepareCall("call Login (?, ?, ?)")) {
+                CallableStatement callableStatement = connection.prepareCall("call Login (?, ?, ?)")) {
             callableStatement.setString(1, username);
             callableStatement.setString(2, password);
             callableStatement.registerOutParameter(3, checked);
@@ -31,7 +31,7 @@ public class ConnectDB {
     public Account getUser (String username) {
         Account user = null;
         try (Connection connection = conn_db();
-            CallableStatement statement = (CallableStatement) connection.prepareCall("call get_user(?)")) {
+            CallableStatement statement = connection.prepareCall("call get_user(?)")) {
             statement.setString(1, username);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
@@ -78,7 +78,7 @@ public class ConnectDB {
         ObservableList<Table> tables = FXCollections.observableArrayList();
         try (Connection connection = conn_db();
              Statement statement = connection.createStatement()) {
-            ResultSet resultSet = statement.executeQuery("select * from TableDrinks");
+            ResultSet resultSet = statement.executeQuery("select * from TableDrinks;");
             while (resultSet.next()) {
                 Table table = new Table(resultSet.getInt(1), resultSet.getString(2), resultSet.getBoolean(3));
                 tables.add(table);
@@ -149,7 +149,7 @@ public class ConnectDB {
         return staffObservableList;
     }
 
-    public void addStaff (Staff staff) throws SQLException {
+    public void addStaff (Staff staff) {
         try (Connection connection = conn_db();
              CallableStatement callableStatement =  connection.prepareCall("call addStaff(?,?,?,?,?,?,?,?);")) {
             callableStatement.setInt(1, staff.getStaffID());
@@ -172,7 +172,7 @@ public class ConnectDB {
             statement.setInt(1, staffID);
             ResultSet rs = statement.executeQuery();
             while (rs.next()){
-                checked = rs.getInt(1) == 1 ? true:false;
+                checked = rs.getInt(1) == 1;
             }
         }catch (SQLException e) {
             e.printStackTrace();
@@ -184,6 +184,21 @@ public class ConnectDB {
         try (Connection connection = conn_db();
         CallableStatement statement = connection.prepareCall("call deleteStaff (?)")) {
             statement.setInt(1, staffID);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public void updateStaffInfo (Staff staff) {
+        try (Connection connection = conn_db();
+             CallableStatement statement = connection.prepareCall("call updateStaff (?,?,?,?,?,?,?);")) {
+            statement.setInt(1, staff.getStaffID());
+            statement.setString(2, staff.getFull_name());
+            statement.setString(3, staff.getPosition());
+            statement.setString(4, staff.getAddress());
+            statement.setInt(5,Integer.parseInt(staff.getTell()));
+            statement.setDate(6, staff.getBirthday());
+            statement.setFloat(7, staff.getSalary());
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
