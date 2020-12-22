@@ -9,17 +9,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="823622d3-551f-4779-95d7-dbce8536076b" name="Default Changelist" comment="commit project form">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/StaffController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/StaffController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Databases/ConnectDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Databases/ConnectDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/addStaff.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/staffListPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/staffListPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/TableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/TableController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/TablePage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/TablePage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/HomeController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Controller/StaffController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/StaffController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Databases/ConnectDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Databases/ConnectDB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/addStaff.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/staffListPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/staffListPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/TableController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/TableController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/TablePage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/TablePage.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +67,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="extract.method.default.visibility" value="public" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -138,7 +139,9 @@
       <workItem from="1608455024441" duration="13821000" />
       <workItem from="1608535368746" duration="2556000" />
       <workItem from="1608538013860" duration="103000" />
-      <workItem from="1608538155183" duration="5188000" />
+      <workItem from="1608538155183" duration="5556000" />
+      <workItem from="1608555657740" duration="5051000" />
+      <workItem from="1608646134608" duration="1527000" />
     </task>
     <task id="LOCAL-00001" summary="commit project form">
       <created>1607178633887</created>

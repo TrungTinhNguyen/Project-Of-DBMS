@@ -1,15 +1,19 @@
 package Controller;
 
 import Modules.Account;
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -54,6 +58,17 @@ public class HomeController implements Initializable {
         URL url = new File("src/view/loginPage.fxml").toURI().toURL();
         Parent root = FXMLLoader.load(url);
         stage.setScene(new Scene(root));
+        setLocateStage(stage);
+    }
+
+    public static void setLocateStage(Stage stage) {
+        DoubleProperty locate_x = new SimpleDoubleProperty();
+        DoubleProperty locate_y = new SimpleDoubleProperty();
+        Rectangle2D primaryScreen = Screen.getPrimary().getVisualBounds();
+        locate_x.bind(new SimpleDoubleProperty((primaryScreen.getWidth()-stage.getWidth())/2));
+        locate_y.bind(new SimpleDoubleProperty((primaryScreen.getHeight()-stage.getHeight())/2));
+        stage.setY(locate_y.doubleValue());
+        stage.setX(locate_x.doubleValue());
         stage.show();
     }
 

@@ -158,7 +158,7 @@
             <Pane prefHeight="77.0" prefWidth="483.0">
                 <Label layoutX="293.0" layoutY="14.0" text="Tổng:" />
                 <Label fx:id="sumLbl" alignment="CENTER_RIGHT" layoutX="361.0" layoutY="14.0" prefHeight="16.0" prefWidth="118.0" text="Tổng" />
-                <Button layoutX="65.0" layoutY="50.0" mnemonicParsing="false" text="Chuyển bàn" />
+                <Button layoutX="65.0" layoutY="50.0" mnemonicParsing="false" onAction="#changeTable" text="Chuyển bàn" />
                 <Button layoutX="195.0" layoutY="50.0" mnemonicParsing="false" onAction="#deleteTable" text="Xóa bàn" />
                 <Button layoutX="300.0" layoutY="50.0" mnemonicParsing="false" onAction="#pay" text="Thanh Toán" />
             </Pane>

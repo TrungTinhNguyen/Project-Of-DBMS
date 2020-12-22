@@ -24,7 +24,6 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
-import java.sql.SQLException;
 import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -52,7 +51,7 @@ public class StaffController implements Initializable {
 
     private ObservableList <Staff> staffObservableList;
 
-    public void addStaff () throws SQLException {
+    public void addStaff () {
         int ID = staffObservableList.size()+1;
         String name = staffName.getText();
         String pos = staffPosition.getText();
@@ -140,45 +139,43 @@ public class StaffController implements Initializable {
         String birD = "";
         String tell = "";
         float salary = 0;
-        if (selected != null){
-            if (!staffName.getText().equals(selected.getFull_name())) {
-                name = staffName.getText();
-                flag = true;
-            }
-            if (!staffPosition.getText().equals(selected.getPosition())) {
-                pos = staffPosition.getText();
-                flag = true;
-            }
-            if (!staffAddress.getText().equals(selected.getAddress())) {
-                adr = staffAddress.getText();
-                flag = true;
-            }
-            if (!String.valueOf(selected.getBirthday()).equals(staffBirthday.getText())) {
-                birD = staffBirthday.getText();
-                flag = true;
-            }
-            if (!staffTell.getText().equals(selected.getTell())) {
-                tell = staffTell.getText();
-                flag = true;
-            }
-            if (Float.parseFloat(staffSalary.getText()) != selected.getSalary()) {
-                salary = Integer.parseInt(staffSalary.getText());
-                flag = true;
-            }
-            if (flag) {
-                if (name.isEmpty()) name = selected.getFull_name();
-                if (pos.isEmpty()) pos = selected.getPosition();
-                if (adr.isEmpty()) adr = selected.getAddress();
-                if (tell.isEmpty()) tell = selected.getTell();
-                if (birD.isEmpty()) birD = String.valueOf(selected.getBirthday());
-                if (salary == 0) salary = selected.getSalary();
+        if (!staffName.getText().equals(selected.getFull_name())) {
+            name = staffName.getText();
+            flag = true;
+        }
+        if (!staffPosition.getText().equals(selected.getPosition())) {
+            pos = staffPosition.getText();
+            flag = true;
+        }
+        if (!staffAddress.getText().equals(selected.getAddress())) {
+            adr = staffAddress.getText();
+            flag = true;
+        }
+        if (!String.valueOf(selected.getBirthday()).equals(staffBirthday.getText())) {
+            birD = staffBirthday.getText();
+            flag = true;
+        }
+        if (!staffTell.getText().equals(selected.getTell())) {
+            tell = staffTell.getText();
+            flag = true;
+        }
+        if (Float.parseFloat(staffSalary.getText()) != selected.getSalary()) {
+            salary = Integer.parseInt(staffSalary.getText());
+            flag = true;
+        }
+        if (flag) {
+            if (name.isEmpty()) name = selected.getFull_name();
+            if (pos.isEmpty()) pos = selected.getPosition();
+            if (adr.isEmpty()) adr = selected.getAddress();
+            if (tell.isEmpty()) tell = selected.getTell();
+            if (birD.isEmpty()) birD = String.valueOf(selected.getBirthday());
+            if (salary == 0) salary = selected.getSalary();
 
-                Staff staff = new Staff(staffId, name, pos, adr, tell, Date.valueOf(birD), selected.getBegin_date(), salary);
+            Staff staff = new Staff(staffId, name, pos, adr, tell, Date.valueOf(birD), selected.getBegin_date(), salary);
 
-                staffObservableList.add(staffObservableList.indexOf(selected), staff);
-                staffObservableList.remove(selected);
-                new ConnectDB().updateStaffInfo(staff);
-            }
+            staffObservableList.add(staffObservableList.indexOf(selected), staff);
+            staffObservableList.remove(selected);
+            new ConnectDB().updateStaffInfo(staff);
         }
 
     }

@@ -10,11 +10,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -26,7 +28,9 @@ import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class TableController implements Initializable {
 
@@ -97,7 +101,7 @@ public class TableController implements Initializable {
     }
 
     public void deleteTable() {
-        drinksOrderedList.get(tableID-1).remove(0, drinksSelectedNumber[tableID-1]-1);
+        drinksOrderedList.get(tableID-1).clear();
         totalPrices[tableID-1] = 0;
         sumLbl.textProperty().bind(new SimpleStringProperty(String.valueOf(totalPrices[tableID-1])));
     }
@@ -107,6 +111,65 @@ public class TableController implements Initializable {
         Parent root = FXMLLoader.load(new File("src/view/homePage.fxml").toURI().toURL());
         stage.setScene(new Scene(root));
         stage.show();
+    }
+
+    public void changeTable () {
+        AtomicInteger changeIntoTableID = new AtomicInteger(tableID);
+        Dialog <Integer> changeTableDialog = new Dialog<>();
+        changeTableDialog.setTitle("Chuyển bàn");
+        changeTableDialog.setHeaderText("Chuyển đến bàn");
+
+        GridPane tableGrid = new GridPane();
+        tableGrid.setVgap(10);
+        tableGrid.setHgap(20);
+        tableGrid.setPadding(new Insets(30, 20, 30, 20));
+
+        SplitMenuButton tableSplit = new SplitMenuButton();
+        tableSplit.setText("Chọn bàn");
+        ObservableList <MenuItem> changeIntoTableList = FXCollections.observableArrayList();
+        tables.forEach(table -> {
+            if (table.getTableID() != tableID) {
+                MenuItem item = new MenuItem();
+                item.setId(String.valueOf(table.getTableID()));
+                item.setText(table.getName());
+                item.setOnAction((event) -> {
+                    tableSplit.setText(item.getText());
+                    tableSplit.setId(item.getId());
+                });
+                changeIntoTableList.add(item);
+            }
+        });
+        tableSplit.getItems().addAll(changeIntoTableList);
+        tableGrid.add(tableSplit, 0, 0);
+        changeTableDialog.getDialogPane().setContent(tableGrid);
+
+        ButtonType changeTo = new ButtonType("Chuyển", ButtonType.OK.getButtonData());
+        changeTableDialog.getDialogPane().getButtonTypes().addAll(changeTo, new ButtonType("Hủy", ButtonType.CANCEL.getButtonData()));
+
+        Node changeButton = changeTableDialog.getDialogPane().lookupButton(changeTo);
+        changeButton.setDisable(true);
+        tableSplit.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.equals("Chọn bàn"))
+                changeButton.setDisable(true);
+            else changeButton.setDisable(false);
+        });
+        changeTableDialog.setResultConverter(clicked -> {
+            if (clicked == changeTo)
+                return Integer.parseInt(tableSplit.getId());
+            return tableID;
+        });
+
+        Optional <Integer> intoTable = changeTableDialog.showAndWait();
+        intoTable.ifPresent(changeIntoTableID::set);
+        if (changeIntoTableID.get() != tableID) {
+            ObservableList<BillInfo> curTableOrder = FXCollections.observableArrayList(drinksOrderedList.get(tableID-1));
+            drinksOrderedList.set(changeIntoTableID.get()-1, curTableOrder);
+            drinksOrderedList.get(tableID-1).clear();
+            totalPrices[changeIntoTableID.get()-1] = totalPrices[tableID-1];
+            totalPrices[tableID-1] = 0;
+            sumLbl.textProperty().bind(new SimpleStringProperty(String.valueOf(totalPrices[tableID-1])));
+        }
+
     }
 
     public void pay() {
@@ -124,7 +187,7 @@ public class TableController implements Initializable {
 
         tables.get(tableID-1).setStatus(false);
         statusLbl.setText("Trống");
-        drinksOrderedList.get(tableID-1).remove(0, drinksOrderedList.get(tableID-1).size());
+        drinksOrderedList.get(tableID-1).clear();
         totalPrices[tableID-1] = 0;
         sumLbl.textProperty().bind(new SimpleStringProperty(String.valueOf(totalPrices[tableID-1])));
     }
@@ -148,9 +211,8 @@ public class TableController implements Initializable {
         for (int i = 0; i < tables.size(); i++) {
             drinksSelectedNumber[i] = 1;
             totalPrices[i] = 0;
-        }
-        for (int i = 0; i < tables.size(); i++)
             drinksOrderedList.add(FXCollections.observableArrayList());
+        }
 
         infoPane.setDisable(true);
 
