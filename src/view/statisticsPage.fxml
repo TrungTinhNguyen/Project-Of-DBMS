@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Ellipse?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.StatisticsController">
+    <Ellipse fill="#9e000000" focusTraversable="true" layoutX="156.0" layoutY="72.0" radiusX="142.0" radiusY="58.0" stroke="#d73da9" strokeType="INSIDE" strokeWidth="2.0" />
+    <Label layoutX="38.0" layoutY="51.0" text="Friends Coffee" textFill="#802170">
+        <font>
+            <Font name="KacstBook" size="33.0" />
+        </font>
+    </Label>
+    <VBox layoutX="565.0" layoutY="20.0" prefHeight="105.0" prefWidth="308.0">
+        <HBox prefHeight="48.0" prefWidth="250.0">
+            <Label prefHeight="48.0" prefWidth="108.0" text="Ngày:" textFill="#366f40">
+                <font>
+                    <Font size="18.0" />
+                </font></Label>
+            <Label fx:id="today" prefHeight="48.0" prefWidth="200.0" text="Label" textAlignment="RIGHT" textFill="#366f40">
+                <font>
+                    <Font size="18.0" />
+                </font></Label>
+        </HBox>
+        <HBox prefHeight="48.0" prefWidth="250.0">
+            <Label prefHeight="48.0" prefWidth="109.0" text="Nhân viên:" textFill="#366f40">
+                <font>
+                    <Font size="18.0" />
+                </font></Label>
+            <Label fx:id="fullName" prefHeight="48.0" prefWidth="199.0" text="Label" textAlignment="RIGHT" textFill="#366f40">
+                <font>
+                    <Font size="18" />
+                </font>
+            </Label>
+        </HBox>
+    </VBox>
+    <AnchorPane layoutX="28.0" layoutY="157.0" prefHeight="400.0" prefWidth="845.0">
+        <HBox prefHeight="400.0" prefWidth="845.0">
+            <Pane prefHeight="400.0" prefWidth="251.0">
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutY="-1.0" prefHeight="31.0"
+                       prefWidth="250.0" text="Tìm Kiếm" textAlignment="CENTER">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <TextField fx:id="staffName" alignment="CENTER" layoutX="11.0" layoutY="84.0" prefHeight="26.0"
+                           prefWidth="230.0" promptText="Tên nhân viên">
+                    <font>
+                        <Font size="12.0"/>
+                    </font>
+                </TextField>
+                <RadioButton layoutX="14.0" layoutY="50.0" mnemonicParsing="false" selected="true"
+                             text="Tên nhân viên">
+                    <toggleGroup>
+                        <ToggleGroup fx:id="searchMethod"/>
+                    </toggleGroup>
+                </RadioButton>
+                <RadioButton layoutX="14.0" layoutY="136.0" mnemonicParsing="false" text="Thời gian"
+                             toggleGroup="$searchMethod"/>
+                <Button layoutX="15.0" layoutY="348.0" mnemonicParsing="false" onAction="#search"
+                        prefHeight="15.0" prefWidth="221.0" text="Tìm Kiếm"/>
+            </Pane>
+            <Pane prefHeight="400.0" prefWidth="596.0">
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutY="-8.0" prefHeight="31.0"
+                       prefWidth="595.0" text="Thống Kê" textAlignment="CENTER">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <TableView fx:id="statisticsTable" layoutX="7.0" layoutY="46.0" prefHeight="345.0" prefWidth="583.0">
+                    <columns>
+                        <TableColumn fx:id="statisticsIDColumn" prefWidth="78.0" text="Số Phiếu"/>
+                        <TableColumn fx:id="dateColumn" prefWidth="161.0" text="Thời gian"/>
+                        <TableColumn fx:id="staffColumn" minWidth="5.0" prefWidth="199.0"
+                                     text="Nhân viên"/>
+                        <TableColumn fx:id="statisticsPricesColumn" minWidth="0.0" prefWidth="144.0" text="Giá trị"/>
+                    </columns>
+                </TableView>
+            </Pane>
+        </HBox>
+    </AnchorPane>
+    <Button layoutX="728.0" layoutY="562.0" mnemonicParsing="false" onAction="#backToHome" prefHeight="31.0" prefWidth="115.0" text="Về">
+        <font>
+            <Font size="12.0" />
+        </font>
+    </Button>
+</AnchorPane>

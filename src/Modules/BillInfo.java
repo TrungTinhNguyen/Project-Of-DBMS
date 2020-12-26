@@ -34,4 +34,8 @@ public class BillInfo {
     public void setAmountOf(int amountOf) {
         this.amountOf = amountOf;
     }
+
+    public float getTotalPrices () {
+        return getAmountOf() * getDrinks().getPrice();
+    }
 }

@@ -9,7 +9,7 @@ public class Bill {
     private int billID;
     private Table table;
     private Staff staff;
-    private ObservableList<BillInfo> listDrinks;
+    private ObservableList<BillInfo> listDrinks = FXCollections.observableArrayList();
     private Date dateCheckin;
     private boolean status;
 
@@ -31,8 +31,10 @@ public class Bill {
         this.staff = staff;
         this.dateCheckin = Date.valueOf(dateCheckin.toLocalDate());
         this.status = false;
-        listDrinks = FXCollections.observableArrayList();
         count++;
+    }
+    public Bill (int id) {
+        this.billID = id;
     }
 
     public int getBillID() {
@@ -64,7 +66,7 @@ public class Bill {
     }
 
     public void setListDrinks(ObservableList<BillInfo> listDrinks) {
-        listDrinks.forEach(drinks -> this.listDrinks.add(drinks));
+        this.listDrinks = FXCollections.observableArrayList(listDrinks);
     }
 
     public Date getDateCheckin() {

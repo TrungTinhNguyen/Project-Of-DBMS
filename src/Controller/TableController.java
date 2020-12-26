@@ -89,15 +89,17 @@ public class TableController implements Initializable {
     }
 
     public void addFood() {
-        if (!tables.get(tableID-1).getStatus()) {
-            tables.get(tableID-1).setStatus(true);
-            statusLbl.setText("Có Người");
+        if (countDrinks > 0) {
+            if (!tables.get(tableID-1).getStatus()) {
+                tables.get(tableID-1).setStatus(true);
+                statusLbl.setText("Có Người");
+            }
+            BillInfo drinks = new BillInfo(drinksSelectedNumber[tableID-1], drinksList.get(drinksItemID), countDrinks);
+            drinksOrderedList.get(tableID-1).add(drinks);
+            drinksSelectedNumber[tableID-1] ++;
+            totalPrices[tableID-1] += drinks.getDrinks().getPrice() * drinks.getAmountOf();
+            sumLbl.textProperty().bind(new SimpleStringProperty(String.valueOf(totalPrices[tableID-1])));
         }
-        BillInfo drinks = new BillInfo(drinksSelectedNumber[tableID-1], drinksList.get(drinksItemID), countDrinks);
-        drinksOrderedList.get(tableID-1).add(drinks);
-        drinksSelectedNumber[tableID-1] ++;
-        totalPrices[tableID-1] += drinks.getDrinks().getPrice() * drinks.getAmountOf();
-        sumLbl.textProperty().bind(new SimpleStringProperty(String.valueOf(totalPrices[tableID-1])));
     }
 
     public void deleteTable() {
@@ -148,11 +150,7 @@ public class TableController implements Initializable {
 
         Node changeButton = changeTableDialog.getDialogPane().lookupButton(changeTo);
         changeButton.setDisable(true);
-        tableSplit.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue.equals("Chọn bàn"))
-                changeButton.setDisable(true);
-            else changeButton.setDisable(false);
-        });
+        tableSplit.textProperty().addListener((observable, oldValue, newValue) -> changeButton.setDisable(newValue.equals("Chọn bàn")));
         changeTableDialog.setResultConverter(clicked -> {
             if (clicked == changeTo)
                 return Integer.parseInt(tableSplit.getId());

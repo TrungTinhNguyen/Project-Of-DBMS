@@ -42,74 +42,71 @@
             </Label>
         </HBox>
     </VBox>
-   <AnchorPane fx:id="main" layoutX="28.0" layoutY="157.0" prefHeight="400.0" prefWidth="845.0">
-      <children>
-         <HBox prefHeight="400.0" prefWidth="845.0">
-            <children>
-               <Pane prefHeight="400.0" prefWidth="251.0">
-                  <children>
-                     <Label alignment="CENTER" contentDisplay="CENTER" layoutY="-1.0" prefHeight="31.0" prefWidth="250.0" text="Tìm kiếm/Cập nhật" textAlignment="CENTER">
-                        <font>
-                           <Font size="18.0" />
-                        </font>
-                     </Label>
-                     <TextField fx:id="staffName" alignment="CENTER" layoutX="10.0" layoutY="43.0" prefHeight="26.0" prefWidth="230.0" promptText="Tên nhân viên">
-                        <font>
-                           <Font size="12.0" />
-                        </font>
-                     </TextField>
-                     <TextField fx:id="staffPosition" alignment="CENTER" layoutX="10.0" layoutY="75.0" prefHeight="26.0" prefWidth="230.0" promptText="Chức vụ">
-                        <font>
-                           <Font size="12.0" />
-                        </font>
-                     </TextField>
-                     <TextField fx:id="staffAddress" alignment="CENTER" layoutX="10.0" layoutY="111.0" prefHeight="26.0" prefWidth="230.0" promptText="Địa chỉ">
-                        <font>
-                           <Font size="12.0" />
-                        </font>
-                     </TextField>
-                     <TextField fx:id="staffTell" alignment="CENTER" layoutX="10.0" layoutY="146.0" prefHeight="26.0" prefWidth="230.0" promptText="Điện thoại">
-                        <font>
-                           <Font size="12.0" />
-                        </font>
-                     </TextField>
-                     <TextField fx:id="staffBirthday" alignment="CENTER" layoutX="10.0" layoutY="180.0" prefHeight="26.0" prefWidth="230.0" promptText="Ngày sinh">
-                        <font>
-                           <Font size="12.0" />
-                        </font>
-                     </TextField>
-                     <TextField fx:id="staffSalary" alignment="CENTER" layoutX="10.0" layoutY="217.0" prefHeight="26.0" prefWidth="230.0" promptText="Lương">
-                        <font>
-                           <Font size="12.0" />
-                        </font>
-                     </TextField>
-                     <Button layoutX="15.0" layoutY="259.0" mnemonicParsing="false" onAction="#addStaff" prefHeight="15.0" prefWidth="221.0" text="Thêm" />
-                     <Button layoutX="15.0" layoutY="293.0" mnemonicParsing="false" onAction="#updateStaffInfo" prefHeight="11.0" prefWidth="221.0" text="Cập nhật" />
-                     <Button layoutX="15.0" layoutY="326.0" mnemonicParsing="false" onAction="#deleteStaff" prefHeight="0.0" prefWidth="221.0" text="Xóa" />
-                     <Button layoutX="15.0" layoutY="360.0" mnemonicParsing="false" onAction="#createAccount" prefHeight="0.0" prefWidth="221.0" text="Cấp tài khoản" />
-                  </children>
-               </Pane>
-               <Pane prefHeight="400.0" prefWidth="596.0">
-                  <children>
-                     <Label alignment="CENTER" contentDisplay="CENTER" layoutY="-8.0" prefHeight="31.0" prefWidth="595.0" text="Nhân Viên" textAlignment="CENTER">
-                        <font>
-                           <Font size="18.0" />
-                        </font>
-                     </Label>
-                     <TableView fx:id="staffTableView" layoutX="7.0" layoutY="46.0" onMouseClicked="#tableViewClicked" prefHeight="345.0" prefWidth="583.0">
-                       <columns>
-                         <TableColumn fx:id="staffIDColumn" prefWidth="55.0" text="Mã NV" />
-                         <TableColumn fx:id="staffNameColumn" prefWidth="221.0" text="Họ Tên" />
-                         <TableColumn fx:id="staffPositionColumn" minWidth="5.0" prefWidth="176.0" text="Chức Vụ" />
-                         <TableColumn fx:id="staffSalaryColumn" minWidth="0.0" prefWidth="130.0" text="Lương" />
-                       </columns>
-                     </TableView>
-                  </children>
-               </Pane>
-            </children>
-         </HBox>
-      </children>
-   </AnchorPane>
+    <AnchorPane layoutX="28.0" layoutY="157.0" prefHeight="400.0" prefWidth="845.0">
+        <HBox prefHeight="400.0" prefWidth="845.0">
+            <Pane prefHeight="400.0" prefWidth="251.0">
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutY="-1.0" prefHeight="31.0" prefWidth="250.0" text="Tìm kiếm/Cập nhật" textAlignment="CENTER">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="staffName" alignment="CENTER" layoutX="10.0" layoutY="43.0" prefHeight="26.0" prefWidth="230.0" promptText="Tên nhân viên">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </TextField>
+                <TextField fx:id="staffPosition" alignment="CENTER" layoutX="10.0" layoutY="75.0" prefHeight="26.0" prefWidth="230.0" promptText="Chức vụ">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </TextField>
+                <TextField fx:id="staffAddress" alignment="CENTER" layoutX="10.0" layoutY="111.0" prefHeight="26.0" prefWidth="230.0" promptText="Địa chỉ">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </TextField>
+                <TextField fx:id="staffTell" alignment="CENTER" layoutX="10.0" layoutY="146.0" prefHeight="26.0" prefWidth="230.0" promptText="Điện thoại">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </TextField>
+                <TextField fx:id="staffBirthday" alignment="CENTER" layoutX="10.0" layoutY="180.0" prefHeight="26.0" prefWidth="230.0" promptText="Ngày sinh">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </TextField>
+                <TextField fx:id="staffSalary" alignment="CENTER" layoutX="11.0" layoutY="241.0" prefHeight="26.0" prefWidth="230.0" promptText="Lương">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </TextField>
+                <Button layoutX="15.0" layoutY="273.0" mnemonicParsing="false" onAction="#addStaff" prefHeight="15.0" prefWidth="221.0" text="Thêm" />
+                <Button layoutX="15.0" layoutY="307.0" mnemonicParsing="false" onAction="#updateStaffInfo" prefHeight="11.0" prefWidth="221.0" text="Cập nhật" />
+                <Button layoutX="15.0" layoutY="340.0" mnemonicParsing="false" onAction="#deleteStaff" prefHeight="0.0" prefWidth="221.0" text="Xóa" />
+                <Button layoutX="15.0" layoutY="374.0" mnemonicParsing="false" onAction="#createAccount" prefHeight="0.0" prefWidth="221.0" text="Cấp tài khoản" />
+            <Label fx:id="staffBeginDate" alignment="CENTER" disable="true" layoutX="10.0" layoutY="210.0" prefHeight="31.0" prefWidth="230.0" text="Ngày bắt đầu">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Label>
+            </Pane>
+            <Pane prefHeight="400.0" prefWidth="596.0">
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutY="-8.0" prefHeight="31.0" prefWidth="595.0" text="Nhân Viên" textAlignment="CENTER">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <TableView fx:id="staffTableView" layoutX="7.0" layoutY="46.0" onMouseClicked="#tableViewClicked" prefHeight="345.0" prefWidth="583.0">
+                    <columns>
+                        <TableColumn fx:id="staffIDColumn" prefWidth="55.0" text="Mã NV" />
+                        <TableColumn fx:id="staffNameColumn" prefWidth="221.0" text="Họ Tên" />
+                        <TableColumn fx:id="staffPositionColumn" minWidth="5.0" prefWidth="176.0" text="Chức Vụ" />
+                        <TableColumn fx:id="staffSalaryColumn" minWidth="0.0" prefWidth="130.0" text="Lương" />
+                    </columns>
+                </TableView>
+            </Pane>
+        </HBox>
+    </AnchorPane>
    <Button layoutX="728.0" layoutY="562.0" mnemonicParsing="false" onAction="#backToHome" prefHeight="31.0" prefWidth="115.0" text="Về">
       <font>
          <Font size="12.0" />

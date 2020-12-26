@@ -69,7 +69,7 @@
                     <Font size="20.0" />
                 </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="77.0" prefWidth="393.0" text="Thống Kê" GridPane.rowIndex="1">
+            <Button onAction="#toStatistics" mnemonicParsing="false" prefHeight="77.0" prefWidth="393.0" text="Thống Kê" GridPane.rowIndex="1">
                 <GridPane.margin>
                     <Insets bottom="15.0" left="40.0" right="30.0" top="15.0" />
                 </GridPane.margin>

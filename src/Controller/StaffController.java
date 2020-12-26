@@ -42,6 +42,7 @@ public class StaffController implements Initializable {
     @FXML private TextField staffTell;
     @FXML private TextField staffBirthday;
     @FXML private TextField staffSalary;
+    @FXML private Label staffBeginDate;
 
     @FXML private TableView<Staff> staffTableView;
     @FXML private TableColumn<Staff, Integer> staffIDColumn;
@@ -127,6 +128,8 @@ public class StaffController implements Initializable {
             staffBirthday.setText(String.valueOf(selected.getBirthday()));
             staffTell.setText(selected.getTell());
             staffSalary.setText(String.valueOf(selected.getSalary()));
+            staffBeginDate.setDisable(false);
+            staffBeginDate.setText(String.valueOf(selected.getBegin_date()));
         }
     }
     public void updateStaffInfo () {

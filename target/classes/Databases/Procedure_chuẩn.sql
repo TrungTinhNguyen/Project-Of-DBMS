@@ -23,7 +23,7 @@ delimiter ;
 call get_user ('PVnhan');
 -- tạo hàm thống kê
 delimiter //
-drop procedure if exists thong_ke;
+drop procedure if exists thong_ke//
 create procedure thong_ke (in user_name nvarchar(50), in date_check date)
 begin
     select c.id_bill, c.dateCheckIn, a.fullname, e.price from Staff a, Account b, Bill c, BillInfo d, Drinks e

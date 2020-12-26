@@ -49,7 +49,20 @@ public class HomeController implements Initializable {
             alert.setContentText("Chức năng này chỉ dành cho Quản lý");
             alert.show();
         }
+    }
 
+    public void toStatistics (ActionEvent event) throws IOException {
+        if (user.getAccount_type() == 0) {
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Parent root = FXMLLoader.load(new File("src/view/statisticsPage.fxml").toURI().toURL());
+            stage.setScene(new Scene(root));
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Chức năng chỉ dành cho Quản lý");
+            alert.setHeaderText("Không có quyền truy cập");
+            alert.setContentText("Chức năng này chỉ dành cho Quản lý");
+            alert.show();
+        }
     }
 
     public void logout(ActionEvent event) throws IOException {

@@ -5,6 +5,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class ConnectDB {
     private static final String URL_DB = "jdbc:mysql://localhost:3307/QuanLyQuanCafe? user=root";
@@ -203,5 +205,63 @@ public class ConnectDB {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+    public ObservableList<Bill> getStatistics () {
+        ObservableList<Drinks> drinksObservableList = FXCollections.observableArrayList(getDrinksList());
+        ObservableList <Bill> statistics = FXCollections.observableArrayList();
+        try (Connection connection = conn_db();
+             CallableStatement statement = connection.prepareCall("call getBill()")){
+            ResultSet rs = statement.executeQuery();
+            int idBill = 0;
+            ArrayList<ObservableList<BillInfo>> listDrinks = new ArrayList<>();
+            Bill bill;
+            while (rs.next()) {
+                int nextBill = rs.getInt(1);
+                if (idBill == 0 || idBill != nextBill) {
+                    idBill = nextBill;
+                    listDrinks.add(FXCollections.observableArrayList());
+                    int idTable = rs.getInt(2);
+                    int idStaff = rs.getInt(3);
+                    Date date = rs.getDate(4);
+                    bill = new Bill(idBill);
+                    bill.setDateCheckin(date);
+                    CallableStatement getStatement;
+                    getStatement = connection.prepareCall("call getTable(?);");
+                    getStatement.setInt(1, idTable);
+                    ResultSet getTable = getStatement.executeQuery();
+                    getStatement = connection.prepareCall("call getStaff(?);");
+                    getStatement.setInt(1, idStaff);
+                    ResultSet getStaff = getStatement.executeQuery();
+                    while (getTable.next()) {
+                        Table table = new Table(getTable.getInt(1), getTable.getString(2), getTable.getBoolean(3));
+                        bill.setTable(table);
+                    }
+                    while (getStaff.next()) {
+                        Staff staff = new Staff (getStaff.getInt(1), getStaff.getString(2), getStaff.getString(3), getStaff.getString(4), getStaff.getString(5), getStaff.getDate(6), getStaff.getDate(7), getStaff.getFloat(8));
+                        bill.setStaff(staff);
+                    }
+                    CallableStatement drinkStt = connection.prepareCall("call getDrinks(?)");
+                    drinkStt.setInt(1, idBill);
+                    ResultSet getDrinks = drinkStt.executeQuery();
+                    while (getDrinks.next()) {
+                        int idBillInfo = getDrinks.getInt(1);
+                        int idDrinks = getDrinks.getInt(2);
+                        int amountOf = getDrinks.getInt(3);
+                        AtomicReference<Drinks> drinks = new AtomicReference<>();
+                        drinksObservableList.forEach(d -> {
+                            if (d.getDrinksID() == idDrinks)
+                                drinks.set(new Drinks(d));
+                        });
+                        BillInfo billInfo = new BillInfo(idBillInfo, drinks.get(), amountOf);
+                        listDrinks.get(idBill-1).add(billInfo);
+                    }
+                    bill.setListDrinks(listDrinks.get(idBill-1));
+                    statistics.add(bill);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return statistics;
     }
 }
