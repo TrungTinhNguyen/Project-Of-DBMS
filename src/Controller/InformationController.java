@@ -15,8 +15,6 @@ import java.util.ResourceBundle;
 
 public class InformationController implements Initializable {
 
-    private static  Account user;
-
     @FXML private Label fullName;
     @FXML private Label today;
 
@@ -29,10 +27,9 @@ public class InformationController implements Initializable {
     @FXML private Label staffBeginDateField;
     @FXML private Label staffSalaryField;
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        user = Controller.getUser();
+        Account user = Controller.getUser();
         HomeController.headerInit(user, fullName, today);
         user.setSalary(new ConnectDB().getSalary(user.getStaffID()));
         staffIDField.setText(String.valueOf(user.getStaffID()));
@@ -42,7 +39,10 @@ public class InformationController implements Initializable {
         staffTellField.setText(user.getTell());
         staffPositionField.setText(user.getPosition());
         staffBeginDateField.setText(new SimpleDateFormat("dd/MM/yyyy").format(Date.valueOf(user.getBegin_date().toLocalDate())));
-        staffSalaryField.setText(String.valueOf(user.getSalary()));
+        if (user.getSalary()>0)
+            staffSalaryField.setText(String.valueOf(user.getSalary()));
+        else
+            staffSalaryField.setText("");
     }
 
     public void backToHome(ActionEvent event) throws IOException {

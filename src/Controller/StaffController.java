@@ -24,14 +24,11 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
-import java.text.Format;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class StaffController implements Initializable {
-    private static Account user;
 
     @FXML private Label today;
     @FXML private Label fullName;
@@ -113,6 +110,12 @@ public class StaffController implements Initializable {
                 newAccount.setAccount_type(account.getValue().getValue());
             });
             connectDB.createAccount(newAccount);
+        } else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Cấp tài khoản");
+            alert.setHeaderText("Đã có tài khoản");
+            alert.setContentText("Nhân viên "+selected.getFull_name()+" đã có tài khoản");
+            alert.show();
         }
     }
     public void deleteStaff () {
@@ -191,7 +194,7 @@ public class StaffController implements Initializable {
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        user = Controller.getUser();
+        Account user = Controller.getUser();
         HomeController.headerInit(user, fullName, today);
         ConnectDB connectDB = new ConnectDB();
         staffObservableList = FXCollections.observableArrayList(connectDB.getStaffList());

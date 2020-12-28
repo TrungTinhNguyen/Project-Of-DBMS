@@ -94,11 +94,22 @@ public class TableController implements Initializable {
                 tables.get(tableID-1).setStatus(true);
                 statusLbl.setText("Có Người");
             }
+            boolean flag = false;
             BillInfo drinks = new BillInfo(drinksSelectedNumber[tableID-1], drinksList.get(drinksItemID), countDrinks);
-            drinksOrderedList.get(tableID-1).add(drinks);
-            drinksSelectedNumber[tableID-1] ++;
+            for (BillInfo e : drinksOrderedList.get(tableID - 1)) {
+                if (e.getDrinks().getDrinksID() == drinks.getDrinks().getDrinksID()) {
+                    e.setAmountOf(e.getAmountOf() + drinks.getAmountOf());
+                    flag = true;
+                    break;
+                }
+            }
+            if (!flag){
+                drinksOrderedList.get(tableID-1).add(drinks);
+                drinksSelectedNumber[tableID-1] ++;
+            }
             totalPrices[tableID-1] += drinks.getDrinks().getPrice() * drinks.getAmountOf();
             sumLbl.textProperty().bind(new SimpleStringProperty(String.valueOf(totalPrices[tableID-1])));
+            drinksOrderedTable.refresh();
         }
     }
 
