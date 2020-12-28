@@ -64,9 +64,19 @@ public class HomeController implements Initializable {
             alert.show();
         }
     }
-
-    public void logout(ActionEvent event) throws IOException {
+    public void toDrinksList (ActionEvent event) throws IOException{
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Parent root = FXMLLoader.load(new File("src/view/drinksList.fxml").toURI().toURL());
+        stage.setScene(new Scene(root));
+    }
+    public void toInformation (ActionEvent event) throws IOException {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Parent root = FXMLLoader.load(new File("src/view/informationPage.fxml").toURI().toURL());
+        stage.setScene(new Scene(root));
+    }
+
+    public void logout(ActionEvent event) throws Exception {
+           Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         user = null;
         URL url = new File("src/view/loginPage.fxml").toURI().toURL();
         Parent root = FXMLLoader.load(url);
@@ -85,12 +95,16 @@ public class HomeController implements Initializable {
         stage.show();
     }
 
+    public static void headerInit (Account user, Label fullName, Label today) {
+
+        fullName.setText(user.getFull_name());
+        today.setText(new SimpleDateFormat("dd/MM/yyyy").format(Date.valueOf(LocalDate.now())));
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         user = Controller.getUser();
-        Format formatter = new SimpleDateFormat("dd/MM/yyyy");
-        Date curDate = Date.valueOf(LocalDate.now());
-        today.setText(formatter.format(curDate));
+        headerInit(user, fullName, today);
         fullName.setText(user.getFull_name());
     }
 }

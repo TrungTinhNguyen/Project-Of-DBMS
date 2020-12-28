@@ -36,7 +36,7 @@ public class Controller {
             e.printStackTrace();
         }
         if (checked > -1) {
-            user = connectDB.getUser(username);
+            user = new Account(connectDB.getUser(username));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             try{
                 Parent root = FXMLLoader.load(new File("src/view/homePage.fxml").toURI().toURL());

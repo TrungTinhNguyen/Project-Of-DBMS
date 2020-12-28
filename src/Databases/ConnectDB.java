@@ -9,10 +9,12 @@ import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class ConnectDB {
-    private static final String URL_DB = "jdbc:mysql://localhost:3307/QuanLyQuanCafe? user=root";
+    private static final String URL_DB = "jdbc:mysql://localhost:3306/quanlyquancafe?";
+    private static final String USR_DB = "root";
+    private static final String PASS_DB = "admin";
 
     public Connection conn_db () throws SQLException {
-        return DriverManager.getConnection(URL_DB);
+        return DriverManager.getConnection(URL_DB, USR_DB, PASS_DB);
     }
     public int validate (String username, String password) throws SQLException {
         int checked = -1;
@@ -103,7 +105,7 @@ public class ConnectDB {
             bill.getListDrinks().forEach(e -> {
                 try {
                     billInfoStt.setInt(1, bill.getBillID());
-                    billInfoStt.setInt(2, e.getID());
+                    billInfoStt.setInt(2, e.getDrinks().getDrinksID());
                     billInfoStt.setInt(3, e.getAmountOf());
                     billInfoStt.executeUpdate();
                 } catch (SQLException exception) {
@@ -180,6 +182,19 @@ public class ConnectDB {
             e.printStackTrace();
         }
         return checked;
+    }
+
+    public void createAccount (Account newAccount) {
+        try (Connection connection = conn_db();
+        CallableStatement statement = connection.prepareCall("call createAccount (?,?,?,?)")){
+            statement.setString(1, newAccount.getUsername());
+            statement.setInt(2, newAccount.getStaffID());
+            statement.setString(3, newAccount.getPassword());
+            statement.setInt(4, newAccount.getAccount_type());
+            statement.executeUpdate();
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void deleteStaff (int staffID) {
@@ -263,5 +278,64 @@ public class ConnectDB {
             e.printStackTrace();
         }
         return statistics;
+    }
+
+    public ObservableList<DrinksCategory> getDrinksCategory (){
+        ObservableList<DrinksCategory> categories = FXCollections.observableArrayList();
+        try (Statement statement = conn_db().createStatement()) {
+            ResultSet rs = statement.executeQuery("select * from DrinksCategory;");
+            while (rs.next()) {
+                DrinksCategory category = new DrinksCategory(rs.getInt(1), rs.getString(2));
+                categories.add(category);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return categories;
+    }
+
+    public boolean addNewDrinks (Drinks drinks) {
+        try (PreparedStatement statement = conn_db().prepareCall("insert into Drinks values (?,?,?,?);")){
+            statement.setInt(1, drinks.getDrinksID());
+            statement.setString(2, drinks.getName());
+            statement.setInt(3, drinks.getCategoryID());
+            statement.setFloat(4, drinks.getPrice());
+            statement.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (NullPointerException nullPointerException) {
+            //do not things
+        }
+        return false;
+    }
+    public void deleteDrinks (Drinks drinks) {
+        try (PreparedStatement statement = conn_db().prepareCall("delete from Drinks where id_drinks = ?")){
+            statement.setInt(1, drinks.getDrinksID());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public void updateDrinksPrice (Drinks drinks) {
+        try (PreparedStatement statement = conn_db().prepareCall("update Drinks set price = ? where id_drinks = ?")){
+            statement.setFloat(1, drinks.getPrice());
+            statement.setInt(2, drinks.getDrinksID());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public float getSalary (int staffID) {
+        float salary = 0;
+        try (PreparedStatement statement = conn_db().prepareCall("select salary from Salary where idStaff = ?;")){
+            statement.setInt(1, staffID);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next())
+                salary = rs.getFloat(1);
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return salary;
     }
 }

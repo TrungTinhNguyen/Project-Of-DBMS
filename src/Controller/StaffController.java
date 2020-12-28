@@ -31,7 +31,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class StaffController implements Initializable {
-    private static final Staff user = Controller.getUser();
+    private static Account user;
 
     @FXML private Label today;
     @FXML private Label fullName;
@@ -112,6 +112,7 @@ public class StaffController implements Initializable {
                 newAccount.setPassword(account.getValue().getKey());
                 newAccount.setAccount_type(account.getValue().getValue());
             });
+            connectDB.createAccount(newAccount);
         }
     }
     public void deleteStaff () {
@@ -190,10 +191,8 @@ public class StaffController implements Initializable {
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Format formatter = new SimpleDateFormat("dd/MM/yyyy");
-        Date curDate = Date.valueOf(LocalDate.now());
-        today.setText(formatter.format(curDate));
-        fullName.setText(user.getFull_name());
+        user = Controller.getUser();
+        HomeController.headerInit(user, fullName, today);
         ConnectDB connectDB = new ConnectDB();
         staffObservableList = FXCollections.observableArrayList(connectDB.getStaffList());
         staffTableView.setItems(staffObservableList);

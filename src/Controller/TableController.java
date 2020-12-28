@@ -34,7 +34,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class TableController implements Initializable {
 
-    private static final Staff user = Controller.getUser();
+    private static Account user;
 
     @FXML private Label fullName;
     @FXML private Label today;
@@ -171,7 +171,8 @@ public class TableController implements Initializable {
     }
 
     public void pay() {
-        Bill bill = new Bill(Bill.getCount(), tables.get(tableID-1), user, Date.valueOf(LocalDate.now()));
+
+        Bill bill = new Bill(Bill.getCount(), tables.get(tableID-1), user, drinksOrderedList.get(tableID-1), Date.valueOf(LocalDate.now()), true);
         bill.setListDrinks(drinksOrderedList.get(tableID-1));
 
         ConnectDB connectDB = new ConnectDB();
@@ -192,10 +193,8 @@ public class TableController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Format formatter = new SimpleDateFormat("dd/MM/yyyy");
-        Date curDate = Date.valueOf(LocalDate.now());
-        today.setText(formatter.format(curDate));
-        fullName.setText(user.getFull_name());
+        user = Controller.getUser();
+        HomeController.headerInit(user, fullName, today);
         ConnectDB connectDB = new ConnectDB();
         drinksList = FXCollections.observableArrayList(connectDB.getDrinksList());
         ObservableList<Integer> countList = FXCollections.observableArrayList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
