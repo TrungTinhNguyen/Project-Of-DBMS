@@ -10,8 +10,9 @@
 #
 # Tên Đồ Án: Phần mềm quản lý quán cà phê
 # 
-# Ngôn ngữ/Thư viện:
+# Ngôn ngữ/Thư viện/Platform:
 # 1. Java 11.0.9
 # 2. JavaFX 11.0.2
+# 3. Maven
 #
 # IDE: IntelliJ (2020.3)
