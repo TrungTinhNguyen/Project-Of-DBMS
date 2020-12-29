@@ -79,72 +79,80 @@ public class DrinksListController implements Initializable {
         deleteBtn.setDisable(true);
     }
     public void addDrinks () {
-        ConnectDB connectDB = new ConnectDB();
-        AtomicReference<Drinks> newDrinks = new AtomicReference<>();
-        Dialog<Drinks> addDrinksDialog = new Dialog<>();
-        GridPane gridPane = new GridPane();
-        gridPane.setHgap(15);
-        gridPane.setVgap(15);
-        gridPane.setPadding(new Insets(10));
+        if (user.getAccount_type()==0) {
+            ConnectDB connectDB = new ConnectDB();
+            AtomicReference<Drinks> newDrinks = new AtomicReference<>();
+            Dialog<Drinks> addDrinksDialog = new Dialog<>();
+            GridPane gridPane = new GridPane();
+            gridPane.setHgap(15);
+            gridPane.setVgap(15);
+            gridPane.setPadding(new Insets(10));
 
-        TextField dname = new TextField();
-        dname.setPromptText("Tên");
-        dname.setPrefWidth(300);
-        SplitMenuButton cname = new SplitMenuButton();
-        cname.setText("Loại");
-        cname.setPrefWidth(150);
-        ObservableList<DrinksCategory> categories = FXCollections.observableArrayList(connectDB.getDrinksCategory());
-        ObservableList<MenuItem> categoriesItem = FXCollections.observableArrayList();
-        categories.forEach(e->{
-            MenuItem item = new MenuItem();
-            item.setText(e.getCategoryName());
-            item.setOnAction(event-> cname.setText(item.getText()));
-            categoriesItem.add(item);
-        });
-        cname.getItems().addAll(categoriesItem);
-        TextField price = new TextField();
-        price.setPromptText("Giá");
-        price.setPrefWidth(300);
+            TextField dname = new TextField();
+            dname.setPromptText("Tên");
+            dname.setPrefWidth(300);
+            SplitMenuButton cname = new SplitMenuButton();
+            cname.setText("Loại");
+            cname.setPrefWidth(150);
+            ObservableList<DrinksCategory> categories = FXCollections.observableArrayList(connectDB.getDrinksCategory());
+            ObservableList<MenuItem> categoriesItem = FXCollections.observableArrayList();
+            categories.forEach(e->{
+                MenuItem item = new MenuItem();
+                item.setText(e.getCategoryName());
+                item.setOnAction(event-> cname.setText(item.getText()));
+                categoriesItem.add(item);
+            });
+            cname.getItems().addAll(categoriesItem);
+            TextField price = new TextField();
+            price.setPromptText("Giá");
+            price.setPrefWidth(300);
 
-        gridPane.add(dname, 0, 0);
-        gridPane.add(cname, 0, 1);
-        gridPane.add(price, 0, 2);
+            gridPane.add(dname, 0, 0);
+            gridPane.add(cname, 0, 1);
+            gridPane.add(price, 0, 2);
 
-        addDrinksDialog.getDialogPane().setContent(gridPane);
+            addDrinksDialog.getDialogPane().setContent(gridPane);
 
-        ButtonType addOK = new ButtonType("Thêm", ButtonBar.ButtonData.OK_DONE);
-        addDrinksDialog.getDialogPane().getButtonTypes().addAll(addOK, ButtonType.CANCEL);
-        addDrinksDialog.setTitle("Thêm đồ uống");
-        addDrinksDialog.setResultConverter(buttonType -> {
-            if (buttonType == addOK){
-                AtomicInteger cateID = new AtomicInteger();
-                for (DrinksCategory e : categories)
-                    if (e.getCategoryName().equals(cname.getText())){
-                        cateID.set(e.getCategoryID());
-                        break;
-                    }
-                return new Drinks(cateID.get(), cname.getText(), drinksObservableList.size()+1, dname.getText(), Integer.parseInt(price.getText()));
-            } return null;
-        });
-        Optional<Drinks> result = addDrinksDialog.showAndWait();
-        result.ifPresent(drinks -> {
-            if (drinks != null)
-                newDrinks.set(new Drinks(drinks));
-        });
-        if (newDrinks.get() != null) {
-            Alert alert = new Alert(Alert.AlertType.NONE);
-            if (!connectDB.addNewDrinks(newDrinks.get())){
-                alert.setTitle("Lỗi");
-                alert.setHeaderText("Lỗi cập nhật");
-                alert.setContentText("Vui lòng kiểm tra lại");
-                alert.setAlertType(Alert.AlertType.ERROR);
-            } else {
-                alert.setTitle("Thành công");
-                alert.setHeaderText("Thành công");
-                alert.setContentText("Đã thêm");
-                alert.setAlertType(Alert.AlertType.INFORMATION);
-                refresh();
+            ButtonType addOK = new ButtonType("Thêm", ButtonBar.ButtonData.OK_DONE);
+            addDrinksDialog.getDialogPane().getButtonTypes().addAll(addOK, ButtonType.CANCEL);
+            addDrinksDialog.setTitle("Thêm đồ uống");
+            addDrinksDialog.setResultConverter(buttonType -> {
+                if (buttonType == addOK){
+                    AtomicInteger cateID = new AtomicInteger();
+                    for (DrinksCategory e : categories)
+                        if (e.getCategoryName().equals(cname.getText())){
+                            cateID.set(e.getCategoryID());
+                            break;
+                        }
+                    return new Drinks(cateID.get(), cname.getText(), drinksObservableList.size()+1, dname.getText(), Integer.parseInt(price.getText()));
+                } return null;
+            });
+            Optional<Drinks> result = addDrinksDialog.showAndWait();
+            result.ifPresent(drinks -> {
+                if (drinks != null)
+                    newDrinks.set(new Drinks(drinks));
+            });
+            if (newDrinks.get() != null) {
+                Alert alert = new Alert(Alert.AlertType.NONE);
+                if (!connectDB.addNewDrinks(newDrinks.get())){
+                    alert.setTitle("Lỗi");
+                    alert.setHeaderText("Lỗi cập nhật");
+                    alert.setContentText("Vui lòng kiểm tra lại");
+                    alert.setAlertType(Alert.AlertType.ERROR);
+                } else {
+                    alert.setTitle("Thành công");
+                    alert.setHeaderText("Thành công");
+                    alert.setContentText("Đã thêm");
+                    alert.setAlertType(Alert.AlertType.INFORMATION);
+                    refresh();
+                }
+                alert.show();
             }
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Cập Nhật Giá");
+            alert.setHeaderText("Không có quyền truy cập");
+            alert.setContentText("Chức năng này chỉ dành cho Quản lý");
             alert.show();
         }
     }
@@ -196,7 +204,7 @@ public class DrinksListController implements Initializable {
             });
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Không Có Quyền Truy Cập");
+            alert.setTitle("Cập Nhật Giá");
             alert.setHeaderText("Không có quyền truy cập");
             alert.setContentText("Chức năng này chỉ dành cho Quản lý");
             alert.show();
@@ -209,7 +217,7 @@ public class DrinksListController implements Initializable {
             this.refresh();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Chức năng chỉ dành cho Quản lý");
+            alert.setTitle("Xóa Đồ Uống");
             alert.setHeaderText("Không có quyền truy cập");
             alert.setContentText("Chức năng này chỉ dành cho Quản lý");
             alert.show();

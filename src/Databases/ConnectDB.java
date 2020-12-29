@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class ConnectDB {
-    private static final String URL_DB = "jdbc:mysql://localhost:3306/quanlyquancafe?";
+    private static final String URL_DB = "jdbc:mysql://localhost:3306/QuanLyQuanCafe?";
     private static final String USR_DB = "root";
     private static final String PASS_DB = "admin";
 

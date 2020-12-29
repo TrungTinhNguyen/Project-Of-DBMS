@@ -44,7 +44,7 @@ public class HomeController implements Initializable {
             stage.setScene(new Scene(root));
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Chức năng chỉ dành cho Quản lý");
+            alert.setTitle("Quản Lý Nhân Sự");
             alert.setHeaderText("Không có quyền truy cập");
             alert.setContentText("Chức năng này chỉ dành cho Quản lý");
             alert.show();
@@ -58,7 +58,7 @@ public class HomeController implements Initializable {
             stage.setScene(new Scene(root));
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Chức năng chỉ dành cho Quản lý");
+            alert.setTitle("Thống Kê");
             alert.setHeaderText("Không có quyền truy cập");
             alert.setContentText("Chức năng này chỉ dành cho Quản lý");
             alert.show();
@@ -96,7 +96,6 @@ public class HomeController implements Initializable {
     }
 
     public static void headerInit (Account user, Label fullName, Label today) {
-
         fullName.setText(user.getFull_name());
         today.setText(new SimpleDateFormat("dd/MM/yyyy").format(Date.valueOf(LocalDate.now())));
     }
